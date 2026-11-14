@@ -8,6 +8,8 @@ Variables put information from an item onto its overlay, such as a release date 
 2. Under **Text Segments**, click **Add Variable**.
 3. Open **Select a variable...** and pick one. The names below match that list and use the same group headings.
 
+![A Variable element showing IMDb Rating](images/overlay-variables.png)
+
 Mix **Add Text** and **Add Variable** segments to build something like `SEASON 3 IN 12 DAYS`.
 
 If an item doesn't have a value for a variable, Agregarr skips the whole Variable element for that item. Date variables also get a **Date Format** dropdown. It defaults to `MMM DD`, for example `DEC 20`.

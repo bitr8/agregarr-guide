@@ -10,6 +10,8 @@ For tile basics and templates in general, see the [upstream docs](https://agrega
 2. Add a **Tile** element, or select one.
 3. Tick **Color Scale** in the element properties.
 
+![Tile with Color Scale on](images/color-scale.png)
+
 The default scale uses **IMDb Rating** from 0 to 10, with red at the low end and green at the high end. Untick it and the scale is removed, so the tile goes back to its **Fill Color**.
 
 The editor preview uses the sample item you're previewing to colour the tile.

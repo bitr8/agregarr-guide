@@ -6,6 +6,8 @@ Overlay features this fork adds or changes. For the base overlay concepts, see t
 
 The dashboard has an **Overlay Sync** card and a **Collection Sync** card. Each one shows the percentage complete, the item currently being processed, an estimate of the time left, and **Start** / **Stop** buttons. The border colour shows the current state: orange for running, green for done, amber for cancelled, and red for failed.
 
+![Overlay Sync card during a run](images/overlay-sync-card.png)
+
 The **Overlay Sync** card lists each library under **Library progress**. You'll see its state, item counter, and counts for success, errors, unchanged, and filtered. Each library also has separate progress for **Posters**, **Seasons** and **Episodes**, covering each kind of artwork included in the run.
 
 Under **Item results**, the **Success**, **Errors**, **Unchanged** and **Filtered** tiles show their counts. The **Collection Sync** card uses **Collection results** instead, with **Synced**, **Errors**, **Skipped** and **Created** tiles. Click a tile to see the items in that group. The list has a search box.
@@ -20,6 +22,8 @@ Once the sync finishes, errors remain on the card as expandable lists and appear
 
 Presets are ready-made overlay templates on the **Overlay Templates** tab. Switch one on for a library in **Library Configuration**. New libraries start with none enabled. This fork adds or changes these presets:
 
+![Overlay Templates tab](images/overlay-templates.png)
+
 - **Trailer**: a full-width **TRAILER** banner for Coming Soon placeholder items.
 - **Awaiting Download**: a top banner, **AWAITING DOWNLOAD**, for released, monitored items that exist in Radarr or Sonarr but haven't been downloaded yet. TV shows also need **Missing Episode Count (TV)** greater than 0. Custom copies made before this rule was added won't have it. Add **Missing Episode Count (TV)** greater than 0 to both TV sections in the copy's conditions.
 - **Audio Codec**: a badge for the best audio track reported by Plex, such as Atmos, DTS:X, or DTS-HD MA. This is for movies only and skips TV shows.
@@ -33,6 +37,8 @@ You can't edit or delete preset templates. They stay matched to the built-in ver
 ## Template Editor
 
 **Canvas Size** is in the editor sidebar, with Width and Height inputs. The default is 1000 x 1500, and the allowed range is 100 to 2000. For landscape templates, use 1500 x 1000.
+
+![Template editor](images/template-editor.png)
 
 **Check Layout** is a checkbox in the editor sidebar and is off by default. Switch it on to see the problems it finds, or **No layout issues found** when everything looks right:
 
@@ -62,6 +68,8 @@ Set **Parallel Items** under **Settings > General**. The default is 1, with a ra
 The **Stop** button on the **Overlay Sync** card stops the scheduled job and every library currently running.
 
 On **Posters > Poster Overlays > Library Configuration**, each running library appears under **Running Jobs** with its own **Stop** button. That one stops just that library, whether the run came from the schedule or from the library's **Sync** button. The library stops after its current items finish. Other libraries keep running.
+
+![A running library with its Stop button](images/library-stop.png)
 
 ---
 

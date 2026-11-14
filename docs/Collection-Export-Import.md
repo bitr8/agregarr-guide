@@ -11,6 +11,8 @@ For base collection behaviour, see the [upstream docs](https://agregarr.org). Th
 3. In the **Export Collections** window, tick the collections you want. They're all ticked by default.
 4. Click **Export N**, where N is the number ticked.
 
+![Export Collections](images/collection-export.png)
+
 Your browser downloads a single JSON file. For one collection, the filename is `agregarr-collection-NAME.json`. The collection name is lower case, with spaces and symbols replaced by hyphens. For several collections, the filename is `agregarr-collections-export.json`.
 
 ### Choosing what to export

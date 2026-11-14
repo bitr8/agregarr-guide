@@ -28,6 +28,8 @@ Starting from scratch? The [README](https://github.com/bitr8/agregarr-dev#docker
 
 ## Feature overview
 
+![Dashboard with the Overlay Sync and Collection Sync cards](images/dashboard.png)
+
 ### Collections
 - [**Collection Presets**](Collections.md#collection-presets): 12 preset configs, including Trending Movies Today, IMDb Top 250, and Netflix Top 10 Movies
 - [**Library Essentials**](Collections.md#library-essentials): automatically builds smart collections by genre, decade, resolution, or content rating

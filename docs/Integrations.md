@@ -19,6 +19,8 @@ Networks Top 10 collections pull data from FlixPatrol, which sits behind Cloudfl
 3. Add more instances if you want a fallback. Agregarr tries them in order. Drag a row using **Drag to reorder** to change its priority.
 4. Press **Save Changes**.
 
+![Cloudflare Solvers in Settings > Sources](images/cloudflare-solver.png)
+
 ```yaml
 services:
   agregarr:
@@ -125,6 +127,8 @@ Before searching YouTube, the fork checks TMDB's video metadata for a placeholde
 The same downloader that fetches trailers also runs the YouTube search. It uses your `youtube-cookies.txt` file if you've added one.
 
 ### Settings
+
+![Trailer settings in Settings > Downloads](images/trailer-settings.png)
 
 All of these are under **Settings > Downloads**:
 

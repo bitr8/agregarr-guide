@@ -2,9 +2,13 @@
 
 Collection features added in this fork. For the base collection behaviour, see the [upstream docs](https://agregarr.org).
 
+![Collections on the Home page](images/collections-home.png)
+
 ## Collection Presets
 
 **Start from Preset** pre-fills the new collection form with one of 12 preset configs. You'll only see it while creating a collection.
+
+![Add New Collection filled from the IMDb Top 250 preset](images/collection-preset.png)
 
 
 | Preset | Source | Media | Max Items |
@@ -29,6 +33,8 @@ Presets turn on **Server Owner Home** and **Library Recommended**, with **Users 
 ## Library Essentials
 
 Select **Plex Library**, then pick an Essentials subtype. Agregarr builds smart collections from the library's metadata.
+
+![Library Values for Auto Genre Collections](images/library-essentials.png)
 
 
 | Subtype | What it creates |
@@ -107,6 +113,8 @@ The **Sort Title** field controls the collection's position in Plex. It appears 
 ## Filtered Hubs
 
 Choose **Filtered Plex Hub**, then pick a subtype. Each subtype creates a smart collection that leaves out anything with the `trailer-placeholder` label, keeping placeholders out of the hub.
+
+![A Filtered Plex Hub collection](images/filtered-hub.png)
 
 | Subtype | What it lists |
 |---------|---------------|

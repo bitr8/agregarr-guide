@@ -9,6 +9,8 @@ Episode scanning reads a show's episode files and rolls the values up. Show and 
 3. Turn on **Use episode files for quality badges**.
 4. Click **Save Configuration**.
 
+![Use episode files for quality badges in Configure Overlays](images/episode-scanning.png)
+
 The toggle only shows up for show libraries. It's off by default.
 
 Scanning runs during the library's full overlay sync. Quick syncs and collection-driven overlay runs don't scan Plex. They use the results from the last full sync.

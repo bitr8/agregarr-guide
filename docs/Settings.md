@@ -36,6 +36,8 @@ Use the `PUID` and `PGID` of the user that owns your media directories. On Unrai
 
 **Settings > General**.
 
+![General Settings](images/settings-general.png)
+
 ### Log Level
 
 **Log Level** controls how much detail Agregarr writes to the logs. The options are **Error**, **Warning**, **Info** and **Debug**. The default is **Info**. Save the setting and it changes straight away, with no restart needed.
@@ -112,6 +114,8 @@ This only changes the sort title, never the collection name. Move to End groups 
 ## Jobs
 
 **Settings > Jobs** lists the scheduled jobs. Each row shows a one-line description under the name, a **Last Run** badge, an **Edit** button for changing the frequency, and **Run Now**. These are the defaults:
+
+![Settings > Jobs](images/settings-jobs.png)
 
 | Job | Default | What it does |
 |-----|---------|--------------|

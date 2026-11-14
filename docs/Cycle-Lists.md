@@ -45,6 +45,8 @@ Sources are lists from outside services and the other source types above. They a
 
 **Combine Mode** uses radio buttons. New Multiple Sources collections start on **List Order**.
 
+![Combine Mode set to Cycle Lists with a dynamic title](images/cycle-lists.png)
+
 - **Interleaved**: takes the 1st item from each source, then the 2nd from each, and so on.
 - **List Order**: takes every item from source 1, then every item from source 2, and so on.
 - **Randomised**: shuffles all items on every sync.

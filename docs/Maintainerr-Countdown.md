@@ -14,6 +14,8 @@ Agregarr adds Maintainerr deletion countdowns to movie, show, and season posters
 
 Agregarr takes the collection's delete-after days and subtracts the whole days since Maintainerr added the item. If an item is in several collections, the earliest deletion date wins. Collections without a delete-after setting above zero don't count.
 
+![Poster with a LEAVING IN 5 DAYS countdown](images/maintainerr-poster.png)
+
 Negative numbers mean the item is overdue. The **Maintainerr Deleting Soon** preset only applies when **Days Until Maintainerr Action** is 0 or more, so it won't draw a banner for overdue items. Custom templates can handle the number differently (see [Overlay Variables](Overlay-Variables.md#other-variables)).
 
 ---
@@ -21,6 +23,8 @@ Negative numbers mean the item is overdue. The **Maintainerr Deleting Soon** pre
 ## Show posters
 
 A show directly included in a Maintainerr collection always uses its own date. If only its seasons are scheduled, the **Show poster countdown** dropdown controls what happens:
+
+![Show poster countdown and Season deletion countdown settings](images/maintainerr-settings.png)
 
 | Option | Behaviour |
 |--------|-----------|

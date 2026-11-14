@@ -6,6 +6,8 @@ Show/hide rules run at render time. There are two flavours: **application condit
 
 In the overlay template editor, find **Application Condition** and click **Edit Conditions**. This opens the **Edit Application Conditions** window. Tick the **Always apply (no condition)** box to add rules. Its label changes to **Only apply when:** and the rule builder appears. Untick it to go back to always applying.
 
+![Edit Application Conditions with two rules](images/overlay-conditions.png)
+
 Rules are split into sections. **Add Rule** adds another rule to the current section. **Add Section** creates a new section. Drag a rule by its handle to reorder it. Rules within a section use **AND** or **OR** between each pair, with **AND** as the default. Sections use **AND** or **OR** as well, but default to **OR**.
 
 Each rule has a field, operator, and value. The dropdown groups fields like this:

@@ -1,0 +1,23 @@
+:root > * {
+  --md-primary-fg-color: #ea580c;
+  --md-primary-fg-color--light: #fb923c;
+  --md-primary-fg-color--dark: #c2410c;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 24;
+  --md-typeset-a-color: #fb923c;
+}
+
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #c2410c;
+}
+
+.md-typeset img {
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0 1px rgb(127 127 127 / 25%);
+}
+
+.md-typeset table:not([class]) {
+  font-size: 0.72rem;
+}

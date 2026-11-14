@@ -1,0 +1,11 @@
+[project]
+name = "agregarr-guide"
+version = "0.0.0"
+description = "Documentation site for the bitr8/agregarr fork"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "zensical==0.1.1",
+]

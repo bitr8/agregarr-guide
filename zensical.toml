@@ -1,0 +1,80 @@
+[project]
+site_name = "Agregarr (bitr8 fork) Guide"
+site_description = "Documentation for the features specific to the bitr8/agregarr fork."
+site_url = "https://bitr8.github.io/agregarr-guide/"
+docs_dir = "docs"
+repo_url = "https://github.com/bitr8/agregarr-guide"
+repo_name = "bitr8/agregarr-guide"
+edit_uri = "edit/main/docs/"
+copyright = "Docs licensed <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0</a>. Spotted something wrong? <a href=\"https://bitr8.github.io/agregarr-guide/Contributing/\">Send a fix</a>."
+extra_css = [
+  "stylesheets/extra.css",
+]
+nav = [
+  { "Home" = "index.md" },
+  { "Collections" = [
+    { "Collections" = "Collections.md" },
+    { "Cycle Lists" = "Cycle-Lists.md" },
+    { "Export and Import" = "Collection-Export-Import.md" },
+    { "Placeholders" = "Placeholders.md" },
+  ] },
+  { "Overlays" = [
+    { "Overlays" = "Overlays.md" },
+    { "Overlay Conditions" = "Overlay-Conditions.md" },
+    { "Overlay Variables" = "Overlay-Variables.md" },
+    { "Color Scale" = "Color-Scale.md" },
+    { "Episode Scanning" = "Episode-Scanning.md" },
+    { "Maintainerr Countdown" = "Maintainerr-Countdown.md" },
+  ] },
+  { "Running it" = [
+    { "Integrations" = "Integrations.md" },
+    { "Health Checks" = "Health-Checks.md" },
+    { "Settings" = "Settings.md" },
+    { "Performance" = "Performance.md" },
+  ] },
+  { "Contributing" = "Contributing.md" },
+]
+
+[project.theme]
+logo = "images/logo.svg"
+favicon = "images/favicon.png"
+features = [
+  "content.action.edit",
+  "content.code.copy",
+  "navigation.instant",
+  "navigation.instant.progress",
+  "navigation.tabs",
+  "navigation.sections",
+  "navigation.path",
+  "navigation.top",
+  "navigation.footer",
+  "navigation.tracking",
+  "toc.follow",
+  "search.highlight",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "orange"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "orange"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/bitr8/agregarr-dev"
+name = "Agregarr (bitr8 fork) on GitHub"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/docker"
+link = "https://hub.docker.com/r/bitr8/agregarr"
+name = "bitr8/agregarr on Docker Hub"

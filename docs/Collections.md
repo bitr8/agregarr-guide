@@ -81,6 +81,11 @@ The **Target User** dropdown in the collection config lists every Plex user. Onc
 
 Default: "None (visible to all users)."
 
+!!! note "The server owner always sees every collection"
+    Targeting works by adding label filters to the other users' sharing restrictions in Plex. Those restrictions only exist for accounts the server is shared with. The server owner's own account doesn't have any. That's how Plex works, and Agregarr can't change it: if you watch as the owner, you'll see every targeted collection, whoever it was meant for.
+
+    The workaround is to not watch as the owner. Add a managed user to your Plex Home, or use a second Plex account the server is shared with, and do your watching there. That user gets filtered like everyone else, so it only sees its own collections.
+
 Setting a Target User while **Users Home** is on shows a warning about Home visibility.
 
 Target User works with standard collections, multi-source collections, and the Recently Added and Recently Released hubs. It doesn't affect Auto Franchise, Auto Director, Auto Actor, Library Essentials, separator, or Overseerr collections. Those manage their own labels.

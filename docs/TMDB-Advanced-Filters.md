@@ -2,7 +2,7 @@
 
 ## What it does
 
-Custom Advanced Filters builds a collection from TMDB's Discover search. Pick filters such as genre, rating, streaming service, or release date, and Agregarr asks TMDB for every matching movie or show. It then keeps the ones in your library, the same as any other list.
+Custom Advanced Filters builds a collection from TMDB's Discover search. Pick filters such as genre, rating, streaming service, or release date, and Agregarr asks TMDB for the matching movies or shows. It then keeps the ones in your library, the same as any other list.
 
 Movie libraries search TMDB movies. TV libraries search TMDB shows. The library you choose decides which one, not the filters.
 
@@ -84,7 +84,7 @@ There are two exceptions. In a TV library, **Release Year** is sent as **First A
 
 - The **Streaming Service** list shows services available in the **Region/Country** you picked, or the US if you haven't picked one.
 - If you use **Streaming Service** without **Region/Country**, Agregarr sends the US as the region.
-- One **Region/Country** applies to the entire collection. If you set it in more than one group, the first one wins.
+- A group that sets its own **Region/Country** uses it. A group with a **Streaming Service** but no region of its own uses the first **Region/Country** set in any group, or the US if none is set. The **Streaming Service** list follows the first **Region/Country** in the collection.
 
 ### Genres, people, companies, keywords
 
@@ -100,7 +100,7 @@ There are two exceptions. In a TV library, **Release Year** is sent as **First A
 | **Exclude Keywords** | Both | `without_keywords` | Search keywords |
 | **Networks (TMDB IDs)** | TV | `with_networks` | Type TMDB network IDs |
 
-- The genre list combines movie and TV genres. Genres that exist on only one side are marked "(Movie)" or "(TV)". A TV-only genre in a movie library matches nothing.
+- The genre list combines movie and TV genres. Genres that exist on only one side are marked "(Movie)" or "(TV)". A genre marked "(TV)" has no effect in a movie library, and one marked "(Movie)" has none in a TV library. On its own, or under **Match all**, it matches nothing.
 - The search fields show "Search or enter ID...". Type a name and pick a result, or type a TMDB ID and press Enter or click **Add**. Agregarr saves the ID.
 - **Networks (TMDB IDs)** doesn't have search. Type the numeric ID and press Enter or click **Add**.
 
@@ -207,7 +207,7 @@ If TMDB has a temporary problem, Agregarr retries a page up to three times. If T
 **Preview Collection** runs the same filters against your library. Change a filter, sort, or **Max Items**, and the next preview runs a fresh fetch.
 
 - **Random (from TMDB results)** isn't shuffled in the preview. It appears in popularity order.
-- In **Multiple Sources**, a source that fails shows no items in the preview and no error. During a sync, the same failure is logged as an error.
+- In **Multiple Sources**, a source that fails shows no items and no error in the preview window; the failure only goes to the server log. During a sync, the failed source is also reported as a sync error.
 
 ## Standalone vs Multiple Sources
 

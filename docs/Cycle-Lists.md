@@ -17,7 +17,7 @@ Only the list currently showing is fetched. The others wait their turn and don't
 
 ### Adding sources
 
-Each source has a **Source Type**. If that type has sub-types, choose one under **Collection Sub-Type**. For your own lists, choose **Custom List** (**Custom Collection** for TMDB) and paste the list address into **Custom URL**, then click **Validate URL**. Once validated, the source heading shows the list name, for example "2. My Favourite Films".
+Each source has a **Source Type**. If that type has sub-types, choose one under **Collection Sub-Type**. For your own lists, choose **Custom List** (**Custom Collection** for TMDB) and paste the list address into **Custom URL**, then click **Validate URL**. Once validated, the source heading shows the list name, for example "2. My Favourite Films". To build a source from TMDB filters instead of a list, choose **TMDB Lists** and **Custom Advanced Filters** (see [TMDB Custom Advanced Filters](TMDB-Advanced-Filters.md)).
 
 **Source Type** includes:
 

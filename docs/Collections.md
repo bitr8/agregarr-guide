@@ -230,6 +230,10 @@ Also see [Sort Title](#sort-title) and [Label Exclusion](#label-exclusion).
 
 **IMDb Lists** includes a **Bottom 100** subtype for IMDb's lowest rated movies. Movies only.
 
+### TMDB Custom Advanced Filters
+
+**TMDB Lists** has a **Custom Advanced Filters** sub-type that builds a collection from TMDB Discover filters, such as genre, rating, streaming service or release date. It also works as a source in **Multiple Sources**. See [TMDB Custom Advanced Filters](TMDB-Advanced-Filters.md).
+
 ### TVDB Lists
 
 **TVDB Lists** is a collection source with a **Custom List** subtype. Paste the list URL into **Custom TVDB List URL**, then click **Validate**. You can also use it as a source in multi-source collections.

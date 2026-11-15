@@ -15,6 +15,7 @@ nav = [
   { "Collections" = [
     { "Collections" = "Collections.md" },
     { "Cycle Lists" = "Cycle-Lists.md" },
+    { "TMDB Custom Advanced Filters" = "TMDB-Advanced-Filters.md" },
     { "Export and Import" = "Collection-Export-Import.md" },
     { "Placeholders" = "Placeholders.md" },
   ] },

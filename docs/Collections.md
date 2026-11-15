@@ -128,6 +128,20 @@ Recently Released Episodes (Individual) never includes episodes with a future ai
 
 The two Individual hubs don't use collection exclusions or automatic posters. **Label Exclusion** isn't available for Filtered Plex Hub collections.
 
+### Replacing Plex's Recently Added hub
+
+A filtered hub sits alongside Plex's own **Recently Added Movies** or **Recently Added TV** hub. It doesn't replace the existing hub. Turn Plex's hub off, or both will appear: one with placeholders and one without.
+
+1. Add a **Filtered Plex Hub** collection for the library. Use **Recently Added** for a movie library and **Recently Added Episodes** for a TV library.
+2. Tick the **Visibility** boxes you want on the new hub, such as **Users Home**, **Server Owner Home**, and **Library Recommended**.
+3. Find Plex's own Recently Added hub for that library on the **Home** or **Recommended** page. It has a **Plex Default** badge. Edit it and untick all three **Visibility** boxes.
+
+For TV libraries, use **Recently Added Episodes**, not **Recently Added**. Plex keeps the date when a show was first added. For a Coming Soon show, that's the date its placeholder was created.
+
+**Recently Added** sorts shows by that date. If a placeholder was created in January and the first episodes arrive in March, the show keeps its January date and sits behind anything added in between. **Recently Added Episodes** sorts each show by its newest episode, so the show moves to the front when those episodes arrive.
+
+Sorting the TV library by **Date Added** in Plex has the same problem because it uses the same show-level date.
+
 ---
 
 ## More Sources and Options

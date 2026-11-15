@@ -178,8 +178,8 @@ Sets the maximum number of items the collection can hold. New collections start 
 
 **Select Template** appears when auto-generate is ticked, with the default template already selected. Untick auto-generate to show one upload slot per library instead.
 
-!!! note "Episode hubs never get an automatic poster"
-    **Recently Added Episodes (Individual)** and **Recently Released Episodes (Individual)** skip poster generation even when the checkbox is ticked. Upload a poster yourself if you want one.
+!!! note "Episode hubs don't get an automatic poster"
+    **Recently Added Episodes (Individual)** and **Recently Released Episodes (Individual)** don't offer **Auto-generate Collection posters**. The poster section has upload slots instead. Upload a poster if you want one.
 
 ### Apply item overlays during sync
 
@@ -193,7 +193,9 @@ There are three separate tick boxes, all off by default: **Custom Wallpaper**, *
 - Summary: free text, written to the Plex collection description.
 - Theme music: MP3, WAV, FLAC, OGG, AAC or M4A, up to 10MB, one per library.
 
-Agregarr applies them on each sync and doesn't upload unchanged files again. Unticking a box stops Agregarr from applying that value. If the old wallpaper, summary or theme remains in Plex after the next sync, remove it in Plex.
+Agregarr applies them on every sync but doesn't upload unchanged files again. Untick **Custom Wallpaper** or **Custom Theme Music**, or remove the file, and Agregarr removes the wallpaper or theme from the Plex collection on the next sync. It only does that while Plex still shows the one Agregarr uploaded. If you've picked a different one in Plex since, it stays.
+
+Unticking **Custom Summary** stops Agregarr setting the summary. The text stays in Plex, so clear it there if you want it gone.
 
 ### Time Restrictions
 
@@ -204,8 +206,7 @@ Agregarr applies them on each sync and doesn't upload unchanged files again. Unt
 
 Agregarr checks the restrictions whenever the collection syncs, using the server's clock. A collection can therefore lag its window by up to one sync interval. Outside the window, **Remove from Plex when inactive** deletes the Plex collection. Otherwise, the collection stays and uses its inactive visibility settings, which default to **Library Recommended** only.
 
-!!! warning "Set a date range or a day"
-    If you untick **Always Active** without adding a date range or changing a day box, Agregarr treats the collection as inactive all the time.
+Unticking **Always Active** without adding a date range or changing a day box leaves the collection active every day.
 
 ### Collection Mutual Exclusion
 
@@ -213,7 +214,7 @@ Tick **Enable collection exclusion**, then select other collections from the sam
 
 At sync time, Agregarr reads the other collection's current contents from Plex. That collection must already exist and have synced. If Plex can't find it, Agregarr skips it and continues the sync.
 
-Filtered Plex Hubs sync after all other collections and apply exclusions as a Plex filter using the other collection's title. The two Individual episode hubs ignore exclusions even though the section is still shown.
+Filtered Plex Hubs sync after all other collections. They apply exclusions as a Plex filter using the other collection's title. The two Individual episode hubs don't offer exclusions.
 
 ### Item Order and Custom sync timing
 

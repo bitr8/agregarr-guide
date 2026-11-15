@@ -24,6 +24,8 @@ Upstream [Agregarr](https://github.com/agregarr/agregarr) has been quiet since A
 | `:2.13.1` (etc.) | Pinned to one release. |
 | `:develop` | Builds on every push. For testing, not day-to-day use. |
 
+These docs track `:develop`, so fixes and changes may show up here before they reach `:latest` in the next release.
+
 Starting from scratch? The [README](https://github.com/bitr8/agregarr-dev#docker) has the full Compose example.
 
 ## Feature overview

@@ -144,6 +144,85 @@ Sorting the TV library by **Date Added** in Plex has the same problem because it
 
 ---
 
+## Collection Options
+
+These options show when you add or edit a collection. The examples below use **Filtered Plex Hub**, with differences for other types called out where needed. Saving a collection doesn't change Plex immediately. Changes are applied the next time the collection syncs, every 12 hours by default, or earlier if you click **Sync Collections**.
+
+### Collection Title Template
+
+Sets the name shown in Plex. The dropdown contains presets for the selected type. Pick **Custom** to enter your own text, or separate movie and TV values if you selected both library types. `{mediaType}` becomes "Movie" or "TV Show". `{mediaType}s` uses the plural. **Preview** shows the resulting name for each selected library. If Agregarr can't fetch the preview, it shows "Preview unavailable".
+
+A template is required, so the first preset is selected by default. Agregarr rewrites the name on every sync. Changing the template will rename the existing Plex collection.
+
+### Visibility
+
+**Users Home**, **Server Owner Home** and **Library Recommended** set where Plex promotes the collection. New collections start with all three ticked. Library Essentials types start with none ticked. Presets tick only **Server Owner Home** and **Library Recommended**.
+
+With none ticked, the form warns "No visibility options selected. Collection will only appear in library tab." The collection still exists and continues to sync. Some types lock these options. Auto Franchise and Auto Director/Actor, for example, are library tab only. To limit the collection to particular users, see [Per-User Collection Targeting](#per-user-collection-targeting).
+
+### Shuffle position on Home/Recommended screens
+
+Off by default. When ticked, the collection swaps positions with other ticked collections in the same library. Unticked collections stay where they are.
+
+- It only moves collections that already have a Home position.
+- It needs at least two ticked collections in a library. With fewer than two, nothing moves.
+- The shuffle runs at the end of each full sync. It also runs from the **Randomize Home Order** job on the Jobs page, daily at 6am by default. Agregarr skips it while a sync is running.
+
+### Max Items
+
+Sets the maximum number of items the collection can hold. New collections start at 30. The allowed range is 1 to 9999, and leaving the box blank saves 50. For a Filtered Plex Hub, Agregarr writes the limit into the hub itself. That's why the form adds "(applies to smart collection)". Other types order the list first (see **Item Order**), then cut it to this number.
+
+### Posters
+
+**Auto-generate Collection posters** builds a poster from the collection name and its items during sync. It's enabled for new collections. It's disabled for imported Plex collections and the automatic Genre, Decade, Resolution and Content Rating collections. Agregarr only rebuilds the poster when the template, name or items change.
+
+**Select Template** appears when auto-generate is ticked, with the default template already selected. Untick auto-generate to show one upload slot per library instead.
+
+!!! note "Episode hubs never get an automatic poster"
+    **Recently Added Episodes (Individual)** and **Recently Released Episodes (Individual)** skip poster generation even when the checkbox is ticked. Upload a poster yourself if you want one.
+
+### Apply item overlays during sync
+
+Off by default, and always on for Coming Soon. Overlays normally reach items when the overlay job runs, daily at 3am by default. With this ticked, Agregarr applies overlays to this collection's items straight after the collection sync. It only touches items in that collection and needs overlay templates configured for the library. See [Overlays](Overlays.md).
+
+### Wallpapers and Theme
+
+There are three separate tick boxes, all off by default: **Custom Wallpaper**, **Custom Summary** and **Custom Theme Music**. Ticking one shows its input. Wallpaper and theme uploads need a library selected first.
+
+- Wallpaper: JPEG, PNG or WebP, up to 10MB, one per library.
+- Summary: free text, written to the Plex collection description.
+- Theme music: MP3, WAV, FLAC, OGG, AAC or M4A, up to 10MB, one per library.
+
+Agregarr applies them on each sync and doesn't upload unchanged files again. Unticking a box stops Agregarr from applying that value. If the old wallpaper, summary or theme remains in Plex after the next sync, remove it in Plex.
+
+### Time Restrictions
+
+**Always Active** is ticked by default. Untick it to limit when the collection is active:
+
+- **Date Ranges** use DD-MM, include both end days and can cross the new year (for example 05-12 to 26-01).
+- **Days of the Week** limit it to selected days. If both are set, both must match.
+
+Agregarr checks the restrictions whenever the collection syncs, using the server's clock. A collection can therefore lag its window by up to one sync interval. Outside the window, **Remove from Plex when inactive** deletes the Plex collection. Otherwise, the collection stays and uses its inactive visibility settings, which default to **Library Recommended** only.
+
+!!! warning "Set a date range or a day"
+    If you untick **Always Active** without adding a date range or changing a day box, Agregarr treats the collection as inactive all the time.
+
+### Collection Mutual Exclusion
+
+Tick **Enable collection exclusion**, then select other collections from the same library. Items in those collections are excluded from this one. This section only appears when the library has other collections available to select.
+
+At sync time, Agregarr reads the other collection's current contents from Plex. That collection must already exist and have synced. If Plex can't find it, Agregarr skips it and continues the sync.
+
+Filtered Plex Hubs sync after all other collections and apply exclusions as a Plex filter using the other collection's title. The two Individual episode hubs ignore exclusions even though the section is still shown.
+
+### Item Order and Custom sync timing
+
+**Item Order** defaults to "Default order (as provided by source)" and isn't shown for Filtered Plex Hubs. Agregarr applies the order before **Max Items** cuts the list. **Enable custom sync timing** (under **Time Restrictions**) isn't shown for Filtered Plex Hubs either. For other types, see [Item Order](#item-order) and [Cycle Lists](Cycle-Lists.md).
+
+Also see [Sort Title](#sort-title) and [Label Exclusion](#label-exclusion).
+
+---
+
 ## More Sources and Options
 
 ### IMDb Bottom 100

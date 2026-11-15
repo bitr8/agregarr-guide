@@ -66,7 +66,7 @@ Each group runs as a separate TMDB search. Agregarr runs them all, then joins th
 - **AND** keeps only items that appeared in both groups' fetched results. Two broad groups might have very little overlap. If you want "drama and rated 7+", put both filters in the same group.
 - **NOT** removes only the items that the NOT group fetched.
 
-A group with only empty filters, or only filters that don't apply to the library type, searches TMDB without any filters. As an **OR** group, it adds TMDB's most popular titles. As a **NOT** group, it can remove most of your results.
+A group after the first that has only empty filters, or only filters that don't apply to the library type, is skipped. An empty first group starts from every movie or show, so a first group left empty followed by a **NOT** group gives you "everything except".
 
 ## Filter reference
 
@@ -155,11 +155,17 @@ Selecting **Returning Series** and **Ended** under **Status** finds shows with e
 | Field | Works for | TMDB parameter | Value |
 |-------|-----------|----------------|-------|
 | **Certification Country** | Movie | `certification_country` | **United States**, **United Kingdom**, **Canada** |
-| **Certification** | Movie | `certification` | **G**, **PG**, **PG-13**, **R**, **NC-17** |
+| **Certification** | Movie | `certification` | Ratings for the chosen country |
 | **Certification at least** | Movie | `certification.gte` | One rating |
 | **Certification at most** | Movie | `certification.lte` | One rating |
 
-The rating options are US ratings, regardless of the country you pick. Pair them with **United States**. Selecting several ratings under **Certification** finds movies with any of them.
+The rating lists follow the group's **Certification Country**:
+
+- **United States**: NR, G, PG, PG-13, R, NC-17
+- **United Kingdom**: U, PG, 12A, 12, 15, 18, R18
+- **Canada**: E, G, PG, 14A, 18A, R, A
+
+Without a **Certification Country**, you get the US list and Agregarr sends United States to TMDB, which otherwise ignores the rating. Changing the country drops any ratings the new country doesn't have. Picking several ratings under **Certification** finds movies with any of them.
 
 ## Sorting
 

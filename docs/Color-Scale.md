@@ -22,14 +22,12 @@ The editor preview uses the sample item you're previewing to colour the tile.
 
 | Setting | What it does |
 |---------|--------------|
-| **Field** | The number that drives the colour. **IMDb Rating** and **TMDB Rating** are the ones that colour a tile. |
+| **Field** | The number that drives the colour: **IMDb Rating**, **TMDB Rating**, **RT Critic Score** or **RT Audience Score**. |
 | **Min** | The value that gets the **Low** colour. |
 | **Max** | The value that gets the **High** colour. |
 | **Low** | Colour at **Min** and below. |
 | **Mid** | Optional colour halfway between **Min** and **Max**. |
 | **High** | Colour at **Max** and above. |
-
-**RT Critic Score** and **RT Audience Score** are in the field list too.
 
 ---
 
@@ -39,6 +37,8 @@ The value sits somewhere between **Min** and **Max**. Anything below **Min** is 
 
 - **Two colours.** The tile blends directly from **Low** to **High**. A value halfway between **Min** and **Max** gets the colour halfway between them.
 - **Three colours.** Pick a colour with the **Mid** swatch to add it to the scale. The swatch starts out yellow, but that yellow isn't used until you pick a colour. The first half of the range blends from **Low** to **Mid**. The second half blends from **Mid** to **High**. A value exactly halfway gets the **Mid** colour.
+
+If **Min** and **Max** are the same, the tile is **Low** below that value and **High** at it or above. Clear the **Min** or **Max** box and leave it, and it goes back to the last number.
 
 Example: **Min** 3, **Max** 8, **Low** red, **Mid** yellow, **High** green. Ratings of 3 or less are red, 5.5 is yellow, and 8 or more is green.
 

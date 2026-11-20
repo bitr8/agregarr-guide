@@ -36,24 +36,126 @@ You can't edit or delete preset templates. They stay matched to the built-in ver
 
 ## Template Editor
 
-**Canvas Size** is in the editor sidebar, with Width and Height inputs. The default is 1000 x 1500, and the allowed range is 100 to 2000. For landscape templates, use 1500 x 1000.
+Open the editor from **Posters > Poster Overlays > Overlay Templates**. The sidebar holds the template settings. The canvas in the middle shows a sample poster, and the right panel lists the elements and their **Properties**.
 
 ![Template editor](images/template-editor.png)
 
-**Check Layout** is a checkbox in the editor sidebar and is off by default. Switch it on to see the problems it finds, or **No layout issues found** when everything looks right:
+### Template settings
+
+**Canvas Size** has Width and Height inputs. The default is 1000 x 1500, and the allowed range is 100 to 2000. For landscape templates, use 1500 x 1000. On the finished poster the whole template is scaled evenly to fit the poster and centred. A poster that isn't 2:3 gets a small margin on two sides.
+
+**Artwork Targets** picks what the template is drawn on: **Main poster**, **Season poster** or **Episode card**. At least one stays ticked. Ticking **Episode card** on a new, empty template switches the canvas to 1920 x 1080.
+
+**Preview with Other Overlays** draws other templates under this one on the canvas, so you can check they don't collide.
+
+**Check Layout** is a checkbox and is off by default. Switch it on to see the problems it finds, or **No layout issues found** when everything looks right:
 
 - an element extends past the poster edge
-- text will be clipped
-- text extends beyond its badge
-- text overlaps another element, or an overlay selected under **Preview with Other Overlays**
+- text will be clipped (wider or taller than its box)
+- text extends beyond its badge (a visible tile behind the text)
+- text overlaps other text, in this template or in an overlay selected under **Preview with Other Overlays**
 
-This check is only a guide. It estimates text widths, so it can get things wrong.
+This check is only a guide. It estimates text widths, so it can get things wrong. It only compares text with text, not with tiles or icons.
 
-**Colour boxes.** The **Fill Color**, **Border Color** and **Text Color** swatches in the editor each have a text box where you can type a colour. Tiles can also change colour based on a rating. See [Color Scale](Color-Scale.md).
+The toolbar above the canvas has undo (Ctrl+Z), redo (Ctrl+Shift+Z or Ctrl+Y), a snap-to-guides toggle that is on by default, and **Next Poster** to change the sample item.
+
+**Check the real result on the card.** The image on each template's card on the **Overlay Templates** tab is drawn by the same code that draws your finished posters. If the canvas and the card disagree, the card is right.
+
+### Elements
+
+Add elements with the buttons under **Layers**:
+
+- **Text**: fixed text.
+- **Tile**: a coloured box, used as a badge or banner behind text and icons.
+- **Variable**: text built from item data, such as a rating or a release date.
+- **Icon**: an SVG icon.
+- **Image**: a PNG or other picture.
+- **Mapped**: an icon picked from the item's data, such as a flag for each audio language.
+
+The list under **Layers** sets the drawing order. The first element in the list is drawn first, so it sits at the bottom. Use the arrows to move an element up or down the list, and the bin to delete it.
+
+Select an element on the canvas or in the list to edit it under **Properties**. Drag it to move it, and drag the handles to resize it. The corner handles keep its shape. Drag the round handle above the box to rotate it. Rotation has no number box. Elements rotate around their centre.
 
 **Elements bigger than the poster** are cropped at the poster edge. They aren't shrunk to fit.
 
-**Mapped elements.** When the sample item's value has no mapping, the editor preview shows the first mapping dimmed with a tooltip like `No mapping for "VALUE"`. Nothing is drawn for that item on the finished poster.
+### Position and size
+
+Every element has **X Position** and **Y Position**, in canvas pixels from the top-left corner. Every element except **Mapped** also has **Width** and **Height**, at least 1.
+
+### Text
+
+- **Text**: the words to show. Line breaks are removed, so text is always one line.
+- **Font Family**: any font installed in Agregarr. The editor and the finished poster use the same font list.
+- **Font Size**: 12 to 150 px.
+- **Font Weight**: **Normal** or **Bold**.
+- **Font Style**: **Normal** or **Italic**.
+- **Text Color**: swatch and text box.
+- **Text Align**: **Left**, **Center** or **Right** within the box. Text is always centred top to bottom.
+- **Opacity**: 0 to 100%.
+
+Text wider than its box is cut off at the box edge. An empty Text element shows "Sample Text" in the editor so you can find it, and draws nothing on the poster.
+
+### Tile
+
+- **Fill Color** and **Fill Opacity** (0 to 100%).
+- **Color Scale**: colour the tile from a rating instead of **Fill Color**. The field list has **IMDb Rating**, **TMDB Rating**, **RT Critic Score** and **RT Audience Score**, and all four colour the tile. See [Color Scale](Color-Scale.md).
+- **Border Color** and **Border Width** (0 to 30 px). The border is drawn inside the tile's edge, so the tile doesn't get bigger, and it looks the same on the canvas and on the poster. **Border Color** starts out white. A border wider than half the tile fills the tile with the border colour.
+- **Corner Radii**: 0 to 100 px. With the button set to **Locked**, one **Border Radius** slider sets all four corners. Click it to switch to **Unlocked** and set **Top Left**, **Top Right**, **Bottom Left** and **Bottom Right** separately. A radius bigger than half the tile's shorter side is cut down to fit.
+
+**Fill Opacity** fades only the fill. The border stays solid.
+
+### Variable
+
+A Variable element joins **Text Segments** into one line. Click **Add Text** for fixed words and **Add Variable** for item data. Use the arrows to reorder segments. **Preview** shows the result for the sample item.
+
+Date variables have a **Date Format** list, such as `DEC 20`, `20/12/2025` or `MON 20/12`. The default is `DEC 20`. The canvas shows the format you pick.
+
+The font settings are the same as for **Text**: **Font Family**, **Font Size**, **Font Weight**, **Font Style**, **Text Color**, **Text Align** and **Opacity**. Like Text, a Variable draws one line, and anything wider than the box is cut off. The canvas shows it the same way.
+
+If the item has no value for a variable in the element, the whole template is skipped for that item, tiles and icons included. The editor shows an example value instead, so the canvas always has something to show. A template can only have one Variable element that has no condition.
+
+For the list of variables, see [Overlay Variables](Overlay-Variables.md).
+
+### Icon
+
+- **Icon**: pick an SVG from the icon library or upload one. The element resizes to the icon's own size when you pick it.
+- **Opacity**: 0 to 100%.
+- **Grayscale**: show the icon in shades of grey.
+
+The icon is scaled to fit inside its box without changing its shape, and centred.
+
+### Image
+
+- **Image**: pick a PNG or other picture from the icon library, or upload one.
+- **Opacity**: 0 to 100%.
+
+The image is scaled to fit inside its box without changing its shape, and centred.
+
+### Mapped
+
+A Mapped element reads one field from the item and shows an icon for each value it has a mapping for.
+
+- **Source Field**: the field to read, such as **Resolution**, **Audio Languages (All)**, **Network** or **Streaming Provider (ID)**. Changing it loads your saved mappings for that field, or the defaults if you haven't saved any.
+- **Rating Country**: shown for **Content Rating**. Picks the country whose rating is used.
+- **Icon Mappings**: shows how many mappings the element has. **Edit Mappings** opens the list of values and their icons. Matching ignores upper and lower case.
+- **Layout**: **Horizontal**, **Vertical** or **Grid**. **Grid Columns** (2 to 12) appears for Grid.
+- **Icon Size**: 16 to 300 px. Each icon fits inside a square of this size and keeps its shape.
+- **Spacing X** and **Spacing Y**: -20 to 100 px between icons. Negative values overlap them.
+- **Max Icons**: 0 to 50. 0 means unlimited.
+- **Opacity**: 0 to 100%.
+- **Grayscale**: show the icons in shades of grey.
+
+**Layout**, the spacing sliders and **Max Icons** only appear for fields that can hold more than one value, such as languages. Single-value fields like **Resolution** show one icon.
+
+The element's size comes from **Icon Size**, the layout and the number of icons, so it has no **Width** or **Height** and no resize handles. **Check Layout** estimates its size from the number of mappings.
+
+**Values with no mapping.** If the element has no mapping for a value, Agregarr uses your saved mappings for that field, or the defaults if you haven't saved any. If neither covers it, nothing is drawn for that value. To hide a value, delete its mapping in **Edit Mappings**. If you delete every mapping for a field, the defaults come back. The canvas follows the same rules. When nothing covers the sample item's value, the canvas shows the first mapping dimmed with a tooltip like `No mapping for "VALUE"`, so you can still see where the element sits.
+
+### Colour boxes
+
+The **Fill Color**, **Border Color** and **Text Color** swatches each have a text box where you can type a colour. See [Color Scale](Color-Scale.md#colour-text-box) for the formats.
+
+### Troubleshooting
 
 **Can't select, drag, or resize elements?** Brave Shields randomise canvas data to block fingerprinting. This can stop the editor working out which element you clicked. Try turning Shields off for your Agregarr address using the lion icon in the address bar, then reload the page. Other browsers or extensions that block canvas fingerprinting may cause the same problem.
 

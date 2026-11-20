@@ -55,6 +55,8 @@ This check is only a guide. It estimates text widths, so it can get things wrong
 
 **Mapped elements.** When the sample item's value has no mapping, the editor preview shows the first mapping dimmed with a tooltip like `No mapping for "VALUE"`. Nothing is drawn for that item on the finished poster.
 
+**Can't select, drag, or resize elements?** Brave Shields randomise canvas data to block fingerprinting. This can stop the editor working out which element you clicked. Try turning Shields off for your Agregarr address using the lion icon in the address bar, then reload the page. Other browsers or extensions that block canvas fingerprinting may cause the same problem.
+
 ---
 
 ## Parallel Overlay Processing

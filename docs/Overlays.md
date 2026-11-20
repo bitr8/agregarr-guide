@@ -24,7 +24,7 @@ Presets are ready-made overlay templates on the **Overlay Templates** tab. Switc
 
 ![Overlay Templates tab](images/overlay-templates.png)
 
-- **Trailer**: a full-width **TRAILER** banner for Coming Soon placeholder items.
+- **Trailer**: a full-width **TRAILER** banner for placeholder items, from any collection that creates placeholders.
 - **Awaiting Download**: a top banner, **AWAITING DOWNLOAD**, for released, monitored items that exist in Radarr or Sonarr but haven't been downloaded yet. TV shows also need **Missing Episode Count (TV)** greater than 0. Custom copies made before this rule was added won't have it. Add **Missing Episode Count (TV)** greater than 0 to both TV sections in the copy's conditions.
 - **Audio Codec**: a badge for the best audio track reported by Plex, such as Atmos, DTS:X, or DTS-HD MA. This is for movies only and skips TV shows.
 - **Resolution**: a badge showing 4K, 1080, 720, 576, 480, or SD on every item. Switch off the **4K Resolution** preset when using this one, otherwise 4K titles get two badges.

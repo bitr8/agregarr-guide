@@ -1,6 +1,8 @@
 # Placeholders
 
-This fork changes how placeholders work. For the base concept, see the [upstream docs](https://agregarr.org). Trailer sources are covered in [Integrations](Integrations.md#tmdb-trailer-resolution).
+A placeholder is a short trailer file that Agregarr puts in your Plex library for something you don't have yet. It lets a collection show the item, with an overlay such as a release date, before the real file arrives. When the real movie or show turns up, Agregarr removes the placeholder.
+
+Trailer sources are covered in [Integrations](Integrations.md#tmdb-trailer-resolution).
 
 ## Fork additions
 
@@ -12,12 +14,70 @@ This fork changes how placeholders work. For the base concept, see the [upstream
 | `.plexmatch` files | Movie and TV placeholders get a `.plexmatch` with the title, year and TMDB ID (TV also gets the TVDB ID when known), to help Plex match them on the first scan. |
 | Folder naming options | Optional TMDB ID in movie folder names and TVDB ID in TV folder names. See [below](#folder-naming). |
 | Direct Plex deletion | Stale Plex entries deleted via the API instead of scan + empty trash. See [below](#direct-plex-deletion). |
-| Retroactive filters | Placeholder filters (genre, year, country, language, keyword) re-evaluated during cleanup. Existing placeholders that no longer pass are removed. |
+| Retroactive filters | Placeholder filters (genre, year, country, language, keyword) re-evaluated during cleanup. Existing placeholders that no longer pass are removed. See [below](#placeholder-filters). |
 | Hub verification | After sync, filtered hubs are checked for placeholders missing the placeholder label. Missing labels are re-applied and logged. |
 | Root folder filter | Limit candidates by Radarr/Sonarr root folder. See [Collections](Collections.md#coming-soon). |
 | Watch state reset | Playing a placeholder trailer resets it to unwatched, for shared users too. See [below](#watch-state). |
+| Seerr ignore patterns | Keeps Seerr from counting placeholders as available. See [below](#seerr). |
 
-Placeholder items use the Plex label `trailer-placeholder`. Filtered hubs use that label to leave them out.
+---
+
+## Turn it on
+
+1. Set a placeholder folder for the library. See [Placeholder folders](#placeholder-folders).
+2. Open a collection and tick **Create placeholders for missing items** under **Placeholder Creation**.
+3. Set **Days Ahead** and **Released Items** (see [Release windows](#release-windows)), and any **Placeholder Filters**.
+4. Save. Placeholders are created on the next collection sync.
+
+**Placeholder Creation** appears on most collection types. It isn't offered for Seerr, Tautulli, Filtered Plex Hub, or the automatic actor and director collections. **Coming Soon** collections always create placeholders: the box is ticked and can't be cleared. **Days Ahead** is shown for every Coming Soon collection.
+
+If the library has no placeholder folder, the form shows **Placeholder Root Folders Required** with a link to **Settings > Downloads**. If YouTube cookies aren't set up, it warns that trailer downloads may fail. **Skip YouTube Trailer Downloads** in **Settings > Downloads** uses a generic video for every placeholder instead.
+
+### Which items get one
+
+A collection creates a placeholder for each item on its source list that isn't in the Plex library, as long as:
+
+- the item's release date falls inside the [release windows](#release-windows),
+- it passes the [placeholder filters](#placeholder-filters),
+- Sonarr or Radarr doesn't already report it as downloaded (see [Download status](#download-status)),
+- there's room in the collection. When **Max Items** is set and the collection is sorted by anything other than the source's own order, placeholders only fill the slots left after real items. With the source order, a missing item keeps its place in the list.
+
+Items with no known release date don't get a placeholder.
+
+**Bulk Edit** has a **Create Placeholders** column for switching this on or off across several collections at once.
+
+---
+
+## Release windows
+
+Two settings decide which release dates qualify. Both sit under **Placeholder Creation**.
+
+- **Days Ahead**: placeholders are made for items releasing within this many days from today. New collections start at 90. The lowest value is 1.
+- **Released Items** has two choices:
+    - **Include all released items**: any item already released qualifies, however long ago. This is the default.
+    - **Only include items released within** _N_ **days**: only items released in the last _N_ days qualify. New collections start at 14. Set 0 to make placeholders only for items that haven't released yet, or release today.
+
+For movies, the release date is the earlier of the digital and physical dates. When TMDB only has a cinema date, Agregarr estimates the release as the cinema date plus 90 days. Coming Soon and Multiple Sources collections also offer **Skip items with an estimated release date**, which leaves those estimated movies out. See [Collections](Collections.md#skip-estimated-release-dates). For TV, the date is the air date of the next season, or the show's first air date for a new show.
+
+These windows only decide which items get a new placeholder. An existing placeholder isn't removed because its release date moved outside the window. It's removed when the real item arrives, when it drops off the source list, or when it fails the filters. See [Cleanup](#cleanup).
+
+**Include mid-season episodes (TV)** on Coming Soon collections lists shows whose next episode falls inside **Days Ahead**. Those shows must already be in Plex, so no placeholder is made for them. See [Collections](Collections.md#mid-season-episodes).
+
+---
+
+## Placeholder filters
+
+**Placeholder Filters** is a collapsible section under **Placeholder Creation**. It's optional. Leave it empty to make placeholders for every missing item.
+
+- **Minimum release year**
+- **Minimum IMDb rating**. Items without an IMDb rating pass.
+- **Minimum Rotten Tomatoes rating**
+- **Minimum RT audience rating**
+- **Genre Filter**, **Country Filter**, **Language Filter** and **Keyword Filter**, each with an include or exclude toggle.
+
+A value of 0 means no limit.
+
+Changing the year, genre, country, language or keyword filters also applies to placeholders that already exist. On the next sync, any placeholder that no longer passes is removed. Rating filters only apply when a placeholder is created, because unreleased titles usually have no ratings yet.
 
 ---
 
@@ -34,11 +94,13 @@ The same section has two checkboxes for naming new folders. Both are off by defa
 - **Add TMDB ID to movie placeholder folders**: new movie folders use `Title (Year) {tmdb-12345}`. This keeps two movies with the same title and year in separate folders.
 - **Add TVDB ID to TV placeholder folders**: new folders for shows outside Sonarr use `Title (Year) {tvdb-12345}`. Shows already in Sonarr keep Sonarr's folder name.
 
-Whatever the folder is called, the movie file inside is named `Title (Year) {tmdb-12345} {edition-Trailer}.mp4`.
+Whatever the folder is called, the movie file inside is named `Title (Year) {tmdb-12345} {edition-Trailer}.mp4`. Plex shows it as a **Trailer** edition of the movie.
 
 ---
 
 ## TV placeholder folders
+
+TV has no file-level editions, so a TV placeholder is a single special episode, `S00E00.Trailer.mp4`, in a `Season 00` folder. Plex shows it as a **Specials** season with one episode, which Agregarr titles **Trailer (Placeholder)**.
 
 Each new TV placeholder gets its own folder:
 
@@ -76,9 +138,55 @@ A show is skipped if the new folder already exists or Agregarr can't work out th
 !!! warning "The migration cannot be undone"
     Nothing in Agregarr moves placeholders back. Switching editions off later only changes where new placeholders are created. Releases before 2.13.0 don't know about the edition folders, so they'd leave them orphaned and may create duplicate placeholders. If you'd rather keep the old layout, skip the migration instead: stop Agregarr, set `"placeholderEditions": false` as above, then start the new version.
 
+---
+
+## Labels and hubs
+
+Every placeholder gets the Plex label `trailer-placeholder`. For TV, the label goes on the show. Plex may display it as `Trailer-placeholder`; the match isn't case-sensitive.
+
+Agregarr uses the label to keep placeholders out of places they don't belong:
+
+- **Filtered Plex Hubs** leave out anything with the label. Plex's own **Recently Added** hubs don't, so turn those off and use a filtered hub instead. The collections page warns when a library has placeholder collections and a default hub still switched on. See [Collections](Collections.md#filtered-hubs).
+- The automatic actor and director collections, and label-based collections, never include placeholders.
+- For any other collection, add `trailer-placeholder` under **Label Exclusion**. See [Collections](Collections.md).
+
+After each sync, Agregarr checks every filtered hub. A placeholder found in one is missing its label, so Agregarr adds the label again and logs it.
+
+---
+
+## Overlays on placeholders
+
+Placeholders are ordinary Plex items, so overlay templates apply to them. Templates can test **Is Placeholder (Coming Soon)** in their conditions. Despite the name, it's true for placeholders from any collection. Two presets use it:
+
+- **Trailer**: a full-width **TRAILER** banner on every placeholder.
+- **Placeholder Overlay**: darkens every placeholder poster by 25%.
+
+Agregarr recognises a placeholder by its edition: a movie or show whose edition title contains "Trailer", "Placeholder" or "Coming Soon". A TV placeholder's episode is recognised by its title, **Trailer (Placeholder)**. If Sonarr or Radarr reports the item as downloaded, it's never treated as a placeholder.
+
+Coming Soon collections always apply overlays straight after the collection sync. Other collections do this when **Apply item overlays during sync** is ticked. See [Collections](Collections.md#apply-item-overlays-during-sync). If placeholders and overlays are both on but the library has no overlay templates, the form warns that placeholders will be created without status overlays.
+
+### The Specials season
+
+A TV placeholder's only season is the **Specials** season holding the trailer. Plex doesn't give that season a poster of its own, and season overlays always start from the season's Plex poster. When season artwork is a target, Agregarr skips the Specials season of a placeholder show unless you've uploaded a poster for it. Skipped seasons aren't reported as errors. If you upload a poster for that Specials season in Plex, it gets season overlays like any other season.
+
+---
+
+## Cleanup
+
+A placeholder is removed when one of these happens:
+
+1. **The real item arrives.** Agregarr deletes the placeholder once Plex has the real file, or once Sonarr or Radarr reports the download complete. See [Download status](#download-status). For TV edition placeholders, see [When the real show arrives](#when-the-real-show-arrives).
+2. **It drops off the source list.** Agregarr keeps it for 7 days. For released titles, that period starts on the release date. Otherwise, it starts when the placeholder was created.
+3. **It fails the current filters.** See [Placeholder filters](#placeholder-filters).
+4. **Placeholders are switched off, or the collection is deleted.** Agregarr forgets the collection's placeholders straight away. The files then go through the 7-day [orphan grace window](#the-safety-model) before they're deleted, unless another collection still wants them.
+
+Removal deletes the file and marker, takes the item out of Plex, and removes the database record. See [Direct Plex deletion](#direct-plex-deletion).
+
+Full syncs and **Plex Collections Quick Sync** both look for real content. Quick sync handles items Plex added recently: it adds them to the collections they were missing from, then removes their placeholders.
+
 ### When the real show arrives
 
-Agregarr doesn't delete the trailer as soon as it sees the real show. First, it checks that every collection containing the trailer item also contains the real show. It removes the trailer item from those collections, then deletes the trailer files and stale Plex entry. If a collection doesn't contain the real show yet, cleanup waits until the next sync.
+Agregarr doesn't delete a TV edition placeholder as soon as it sees the real show. First, it checks that every collection containing the trailer item also contains the real show. It removes the trailer item from those collections, then deletes the trailer files and stale Plex entry. If a collection doesn't contain the real show yet, cleanup waits until the next sync. Quick sync follows the same rule.
 
 ---
 
@@ -121,6 +229,14 @@ After a scoped scan, Agregarr may empty the whole library's trash when Plex's ow
 
 ---
 
+## Seerr
+
+Seerr sees placeholder files as real media and marks the title as available, so nobody can request it. Turn on **Keep placeholder ignore patterns in Seerr** in the Seerr connection window. Agregarr adds two patterns to Seerr's **Ignored Path Patterns**, one for the movie file (`{edition-Trailer}.mp4`) and one for the TV file (`Season 00/S00E00.Trailer.mp4`), and puts them back on each full collection sync if they go missing. This needs a Seerr build that has that setting. See [Integrations](Integrations.md#seerr).
+
+---
+
 ## Watch state
 
-Placeholder trailers stay unwatched. Register the Plex webhook using the URL under **Plex Webhook** in **Settings > Downloads**. Plex Pass is required. When someone plays, stops, or marks a placeholder as watched, Agregarr marks it unplayed. On stop or watched events, it also clears the resume position. Agregarr does this for both the owner and the shared user who played it.
+Placeholder trailers stay unwatched. Register the Plex webhook using the URL under **Plex Webhook** in **Settings > Downloads**. Plex Pass is required. When someone plays a placeholder, or finishes enough of it for Plex to count it as watched, Agregarr marks it unplayed. When playback stops or the item is counted as watched, it also clears the resume position. Agregarr does this for both the owner and the shared user who played it. Only items Agregarr knows are its placeholders are reset.
+
+The webhook can't stop scrobbles that Plex has already sent to other services. Exclude placeholder items in your scrobbler's settings for full coverage.

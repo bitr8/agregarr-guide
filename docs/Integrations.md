@@ -80,7 +80,7 @@ If Agregarr can't read from Tracearr, the dashboard shows **Tracearr Connection 
 
 Set up Seerr under **Settings > Downloads**, in **Seerr Settings**.
 
-The **Keep placeholder ignore patterns in Seerr** option is in the Seerr connection window. It's off by default. When you turn it on, Agregarr adds the two patterns matching its placeholder files to Seerr's **Ignored Path Patterns**. That stops Seerr counting placeholders as available media. Agregarr checks them during every collection sync and puts back any pattern that's gone missing.
+The **Keep placeholder ignore patterns in Seerr** option is in the Seerr connection window. It's off by default. When you turn it on, Agregarr adds the two patterns matching its placeholder files to Seerr's **Ignored Path Patterns**. That stops Seerr counting placeholders as available media. Agregarr checks them during each full **Plex Collections Sync** and puts back any pattern that's gone missing.
 
 The window shows the current state beside the checkbox: **Both patterns present**, **{count} of 2 patterns missing**, or **Seerr build doesn't support Ignored Path Patterns**.
 

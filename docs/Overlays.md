@@ -29,6 +29,9 @@ Presets are ready-made overlay templates on the **Overlay Templates** tab. Switc
 - **Audio Codec**: a badge for the best audio track reported by Plex, such as Atmos, DTS:X, or DTS-HD MA. This is for movies only and skips TV shows.
 - **Resolution**: a badge showing 4K, 1080, 720, 576, 480, or SD on every item. Switch off the **4K Resolution** preset when using this one, otherwise 4K titles get two badges.
 - **Maintainerr Deleting Soon**: see [Maintainerr Countdown](Maintainerr-Countdown.md).
+- **Episode Info - Episode Card**: the season and episode code, such as `S01E05`, in a rounded black badge at the bottom right of episode title cards. It only draws on episodes that have both numbers, and it does nothing until **Episode cards** is ticked for the library. See [Overlay Examples](Overlay-Examples.md#episode-code-on-episode-cards).
+
+Episode card presets (this one and the IMDb and TMDB rating ones) are drawn only when the library's **Sync scope** has **Episode cards** ticked, under **Full sync**, **Quick sync**, or both. **Sync scope** is in **Library Configuration**, under **Configure Overlays** for a TV library. It starts with only the show posters ticked, so episode cards are off until you tick them.
 
 You can't edit or delete preset templates. They stay matched to the built-in versions. To change one, use **Duplicate** to create your own copy, then switch off the preset for that library.
 
@@ -44,7 +47,7 @@ Open the editor from **Posters > Poster Overlays > Overlay Templates**. The side
 
 **Canvas Size** has Width and Height inputs. The default is 1000 x 1500, and the allowed range is 100 to 2000. For landscape templates, use 1500 x 1000. On the finished poster the whole template is scaled evenly to fit the poster and centred. A poster that isn't 2:3 gets a small margin on two sides.
 
-**Artwork Targets** picks what the template is drawn on: **Main poster**, **Season poster** or **Episode card**. At least one stays ticked. Ticking **Episode card** on a new, empty template switches the canvas to 1920 x 1080.
+**Artwork Targets** picks what the template is drawn on: **Main poster**, **Season poster** or **Episode card**. At least one stays ticked. Ticking **Episode card** on a new, empty template switches the canvas to 1920 x 1080. A template with only **Episode card** ticked is drawn on episode cards, and only in libraries where **Episode cards** is ticked under **Sync scope** (see [Presets](#presets)).
 
 **Preview with Other Overlays** draws other templates under this one on the canvas, so you can check they don't collide.
 
@@ -109,6 +112,8 @@ Text wider than its box is cut off at the box edge. An empty Text element shows 
 A Variable element joins **Text Segments** into one line. Click **Add Text** for fixed words and **Add Variable** for item data. Use the arrows to reorder segments. **Preview** shows the result for the sample item.
 
 Date variables have a **Date Format** list, such as `DEC 20`, `20/12/2025` or `MON 20/12`. The default is `DEC 20`. The canvas shows the format you pick.
+
+Whole-number variables, such as **Season Number** and **Episode Number**, have a **Number Format** list: **Plain (5)**, **Pad to 2 digits (05)** and **Pad to 3 digits (005)**. See [Number Format](Overlay-Variables.md#number-format).
 
 The font settings are the same as for **Text**: **Font Family**, **Font Size**, **Font Weight**, **Font Style**, **Text Color**, **Text Align** and **Opacity**. Like Text, a Variable draws one line, and anything wider than the box is cut off. The canvas shows it the same way.
 

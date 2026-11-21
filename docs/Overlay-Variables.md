@@ -29,6 +29,20 @@ Date variables get a **Date Format** dropdown. It defaults to `MMM DD`, for exam
 
 Dates and day counts use the server's timezone (the `TZ` setting of the container) and count whole calendar days. The editor previews dates the same way.
 
+### Number Format
+
+Variables that hold a whole number get a **Number Format** dropdown under the variable in **Text Segments**. It has three choices:
+
+- **Plain (5)**: the number as it is. This is the default.
+- **Pad to 2 digits (05)**: adds a leading zero up to two digits.
+- **Pad to 3 digits (005)**: adds leading zeros up to three digits.
+
+It is offered on these variables only: **Season Number**, **Episode Number**, **Total Seasons (TV)**, **Seasons in Plex (TV)**, **Missing Episode Count (TV)**, **Episode Count**, **4K Episode Count**, **HDR Episode Count**, **DV Episode Count**, **View Count**, **IMDb Top 250 Rank**, **Days Since Release (incl. release day)**, **Days Until Release**, **Days Until Next Episode (TV)**, **Days Until Next Season (TV)**, **Days Since Added**, **Days Since Last Played** and **Days Since Last Episode Added**. Variables that can be negative or hold a fraction don't get it, such as the **Days Since ... Release (Movies, negative before the date)** counts, **Days Since Next Season Premiered (TV)** and **Days Until Maintainerr Action**. Neither do years, runtimes, vote counts, percentages, file sizes, video and audio details, resolution, dates, ratings, scores, text variables or **Collection Rank**. If you change a segment to one of those variables, its format is reset to **Plain (5)**. A number that is already wider than the padding is left alone, so `123` stays `123` with **Pad to 2 digits (05)**. Negative numbers are never padded.
+
+A variable left on **Plain**, and every template saved before this option existed, prints exactly as before. The canvas shows the padded number, including the sample value it uses when it has no real item to read.
+
+For an episode code, build the Variable element from these segments. A new Variable starts with an **IMDb Rating** segment, so delete that first. Then **Add Text** and change `TEXT` to `S`, **Add Variable** and pick **Season Number** with **Pad to 2 digits (05)**, **Add Text** with `E`, and **Add Variable** with **Episode Number** set to **Pad to 2 digits (05)**. Episode 5 of season 1 shows `S01E05`. For long-running shows, use **Pad to 3 digits (005)** on **Episode Number** to get `S01E005`.
+
 ---
 
 ## Release dates (Coming Soon group)
@@ -64,6 +78,8 @@ For a Coming Soon movie, if Radarr has a digital or physical date, Agregarr uses
 On a show poster, the next episode comes from Sonarr when Sonarr tracks the show and has one scheduled, otherwise from TMDB. Specials are never treated as a season premiere. When nothing is scheduled, **Season Number** and **Episode Number** are empty on the show poster.
 
 The built-in **Returning Soon** banners use **Season Number** to show `SEASON 3 IN 12 DAYS`.
+
+On an episode card, both numbers come from Plex, so Specials show season `0` (`S00E01`). The **Episode Info - Episode Card** preset uses them with **Number Format**. See [Overlay Examples](Overlay-Examples.md#episode-code-on-episode-cards).
 
 ### On season and episode artwork
 

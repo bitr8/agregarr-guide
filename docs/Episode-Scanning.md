@@ -23,7 +23,7 @@ With the toggle on, show and season posters use the rolled-up values in the usua
 
 Shows also get extra fields in the **Episode Media** group, including **4K Episode %**, **HDR Episode Count** and **DV Episode %**. **Media Source (aggregated/show)** shows whether the poster used the roll-up (`aggregated`) or Plex's own show details (`show`). Raw fields such as **Show Resolution (Raw)** and **Show HDR (Raw)** keep Plex's show-level values.
 
-**Days Since Last Episode Added** and **Last Episode Added Date** come from the same scan. See [Overlay Variables](Overlay-Variables.md#episode-media).
+Shows and seasons also get **Multi-Version Episode Count** and **Has Multiple Versions**, from how many versions Plex lists for each episode. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version). **Days Since Last Episode Added** and **Last Episode Added Date** come from the same scan. See [Overlay Variables](Overlay-Variables.md#episode-media).
 
 ---
 
@@ -36,6 +36,7 @@ Shows also get extra fields in the **Episode Media** group, including **4K Episo
 | HDR, Dolby Vision, HDR10+ | On when at least half of the episodes have it. |
 | Dolby Vision Profile | The most common profile among the Dolby Vision episodes. |
 | Counts and percentages | Number of episodes with 4K, HDR or Dolby Vision, and that number as a percentage of the episodes counted, rounded to a whole number. |
+| Multi-Version Episode Count | Number of episodes that have more than one file in Plex. |
 
 **Shows.** Season 0 (Specials) is left out of the quality roll-up. If a show only has specials, it uses those instead. **Days Since Last Episode Added** still counts specials.
 
@@ -54,7 +55,7 @@ Shows also get extra fields in the **Episode Media** group, including **4K Episo
 
 Every full sync reads the library's episode list from Plex. That's cheap, and it's enough to get resolution.
 
-Stream-level detail needs extra Plex metadata requests for the episodes. Agregarr only fetches it when an enabled template needs it: any template using **HDR**, **Dolby Vision**, **Dolby Vision Profile**, **Bit Depth**, **Color Transfer**, **HDR Episode Count**, **HDR Episode %**, **DV Episode Count** or **DV Episode %**, or a show or season template using **Audio Profile** or **HDR10+**. A resolution-only setup doesn't make those requests.
+Stream-level detail needs extra Plex metadata requests for the episodes. Agregarr only fetches it when an enabled template needs it: any template using **HDR**, **Dolby Vision**, **Dolby Vision Profile**, **Bit Depth**, **Color Transfer**, **HDR Episode Count**, **HDR Episode %**, **DV Episode Count** or **DV Episode %**, or a show or season template using **Audio Profile** or **HDR10+**. A resolution-only setup doesn't make those requests. Version counts come from the episode list, so they need no extra requests.
 
 Agregarr fetches details for episodes that are new, changed, or don't have saved results yet, then caches them. Saved results older than 7 days are ignored and fetched again. The first sync after adding one of those fields to a template will be the slowest.
 
@@ -64,3 +65,4 @@ Agregarr fetches details for episodes that are new, changed, or don't have saved
 
 - **Test Specific Media** doesn't run the episode scan, so the **Episode Media** fields are empty there. Check them after a full sync.
 - A show that's in Plex but has no scanned episodes keeps Plex's own details.
+- Version counts are saved with the scan results. After updating to a release that has them, the next full sync fills them in for episodes that were already saved, without refetching stream detail.

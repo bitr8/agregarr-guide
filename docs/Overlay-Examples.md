@@ -62,3 +62,27 @@ Presets can't be edited, so to move the badge or change its look, **Duplicate** 
 
 With **Number Format** left on **Plain**, the same template shows `S1E5`. See [Number Format](Overlay-Variables.md#number-format).
 
+---
+
+## Badge items with more than one version
+
+This puts a small badge on items that Plex holds in more than one version, for example a movie with both a 1080p and a 4K file, or an episode where an upgrade was kept next to the original. It is the same idea as Kometa's versions overlay.
+
+### With the presets
+
+1. Open the **Overlay Templates** tab and check that **Multiple Versions**, **Multiple Versions - Season Poster** and **Multiple Versions - Episode Card** are there.
+2. Open **Library Configuration**, open your library with **Configure Overlays**, and switch on the ones you want. **Multiple Versions** covers movie and show posters.
+3. For show and season badges, turn on **Use episode files for quality badges** for the library (see [Episode Scanning](Episode-Scanning.md)). For season posters tick **Season posters** under **Sync scope**, and for episode cards tick **Episode cards**.
+4. Click **Save Configuration**, then run a **Full Overlays Sync**.
+
+Each badge is a 60% black rounded tile with a white stacked-pages icon. Items with one version are left alone. A show or season gets the badge when one of its episodes has more than one version, and Specials don't count.
+
+### By hand, with a number
+
+1. Create a template and add a **Tile**. Add a **Variable** element on top of it. A new Variable starts with one **IMDb Rating** segment: change that segment's dropdown to **Versions**.
+2. Under **Application Condition**, click **Edit Conditions**, tick **Only apply when:** and set the rule to `Versions` `greater than` `1`.
+3. Save, switch the template on for the library and run a sync.
+
+A movie with two files then shows `2`. Use `greater than` `1` or `Has Multiple Versions` `equals` `true` for the rule. `Versions` `not equals` `1` also matches every show and season poster, because those never have a **Versions** value. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version).
+
+Only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details still come from the first one Plex lists.

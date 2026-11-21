@@ -37,7 +37,7 @@ Variables that hold a whole number get a **Number Format** dropdown under the va
 - **Pad to 2 digits (05)**: adds a leading zero up to two digits.
 - **Pad to 3 digits (005)**: adds leading zeros up to three digits.
 
-It is offered on these variables only: **Season Number**, **Episode Number**, **Total Seasons (TV)**, **Seasons in Plex (TV)**, **Missing Episode Count (TV)**, **Episode Count**, **4K Episode Count**, **HDR Episode Count**, **DV Episode Count**, **View Count**, **IMDb Top 250 Rank**, **Days Since Release (incl. release day)**, **Days Until Release**, **Days Until Next Episode (TV)**, **Days Until Next Season (TV)**, **Days Since Added**, **Days Since Last Played** and **Days Since Last Episode Added**. Variables that can be negative or hold a fraction don't get it, such as the **Days Since ... Release (Movies, negative before the date)** counts, **Days Since Next Season Premiered (TV)** and **Days Until Maintainerr Action**. Neither do years, runtimes, vote counts, percentages, file sizes, video and audio details, resolution, dates, ratings, scores, text variables or **Collection Rank**. If you change a segment to one of those variables, its format is reset to **Plain (5)**. A number that is already wider than the padding is left alone, so `123` stays `123` with **Pad to 2 digits (05)**. Negative numbers are never padded.
+It is offered on these variables only: **Season Number**, **Episode Number**, **Total Seasons (TV)**, **Seasons in Plex (TV)**, **Missing Episode Count (TV)**, **Episode Count**, **4K Episode Count**, **HDR Episode Count**, **DV Episode Count**, **Multi-Version Episode Count**, **Versions**, **View Count**, **IMDb Top 250 Rank**, **Days Since Release (incl. release day)**, **Days Until Release**, **Days Until Next Episode (TV)**, **Days Until Next Season (TV)**, **Days Since Added**, **Days Since Last Played** and **Days Since Last Episode Added**. Variables that can be negative or hold a fraction don't get it, such as the **Days Since ... Release (Movies, negative before the date)** counts, **Days Since Next Season Premiered (TV)** and **Days Until Maintainerr Action**. Neither do years, runtimes, vote counts, percentages, file sizes, video and audio details, resolution, dates, ratings, scores, text variables or **Collection Rank**. If you change a segment to one of those variables, its format is reset to **Plain (5)**. A number that is already wider than the padding is left alone, so `123` stays `123` with **Pad to 2 digits (05)**. Negative numbers are never padded.
 
 A variable left on **Plain**, and every template saved before this option existed, prints exactly as before. The canvas shows the padded number, including the sample value it uses when it has no real item to read.
 
@@ -94,6 +94,7 @@ Season and episode artwork don't get the release date variables, the TV schedule
 | **TMDB Rating** | Ratings | TMDB's user score, for example `8.4`. | Movies, shows, seasons, episodes |
 | **TMDB Vote Count** | Ratings | How many TMDB votes the score is based on, for example `1250`. | Movies, shows, seasons, episodes |
 | **Streaming Provider** | Metadata | The streaming service for the item in your **Watch Provider Region**, for example `Netflix`. | Movies and shows |
+| **Versions** | Video | How many versions Plex lists for the item, for example `2`. A movie split across two files is still one version. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version). | Movies and episodes. Empty on shows and seasons. |
 | **Audio Profile** | Audio | Plex's audio profile, for example `truehd_atmos`. | Items with a file |
 | **Edition** | File Info | The edition, for example `Extended Cut`. It reads the edition set in Plex first, then an `{edition-...}` tag in the file name. | Items with an edition. Not Coming Soon placeholders. |
 | **Collection Rank** | Collection | The item's position in a collection, counting from 1, for example `3`. | Movie and show posters |
@@ -117,6 +118,7 @@ These variables are in the **Episode Media** and **Show Raw Values** groups. The
 | Variable | What it contains | Applies to |
 |----------|------------------|------------|
 | **Episode Count**, **4K Episode Count**, **4K Episode %**, **HDR Episode Count**, **HDR Episode %**, **DV Episode Count**, **DV Episode %** | Counts and percentages over the episodes Agregarr scanned. | TV shows and seasons |
+| **Multi-Version Episode Count** | How many episodes have more than one version, for example `3`. A show leaves out Specials. A Specials season has no count. | TV shows and seasons |
 | **Media Source** | `aggregated` when the poster used the episode roll-up, `show` when it used Plex's show details. | TV shows and seasons |
 | **Last Episode Added Date** | The date the newest episode was added to Plex, including Specials. | TV shows |
 | **Days Since Last Episode Added** | Days since that date, for example `3`. | TV shows |

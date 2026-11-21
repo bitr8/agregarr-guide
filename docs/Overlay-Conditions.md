@@ -17,11 +17,11 @@ Each rule has a field, operator, and value. The dropdown groups fields like this
 | Group | Examples |
 |-------|----------|
 | TMDB Data | **Title**, **Year**, **Genre**, **Network (TV)**, **Streaming Provider**, **TMDB Status (TV)** |
-| Plex Data | **Resolution**, **HDR**, **HDR10+**, **Dolby Vision**, **Audio Format**, **Audio Profile**, **Edition**, **File Path**, **Days Since Added** |
+| Plex Data | **Versions**, **Has Multiple Versions**, **Resolution**, **HDR**, **HDR10+**, **Dolby Vision**, **Audio Format**, **Audio Profile**, **Edition**, **File Path**, **Days Since Added** |
 | Ratings | **IMDb Rating**, **RT Critics Score**, **Is IMDb Top 250**, **Plex User Rating** |
 | Collections | **Collection** (membership in an Agregarr or Plex collection) |
 | Status | **Media Type (movie/show)**, **Days Until Release**, **Release Date Is Estimated**, **Downloaded**, **Is Monitored**, **Total Seasons (TV)**, **Missing Episode Count (TV)**, **Radarr Tags**, **Plex Label**, **Days Until Maintainerr Action** |
-| Episode Media | **4K Episode %**, **HDR Episode Count**, **Days Since Last Episode Added**, **Show Resolution (Raw)**, **Show HDR (Raw)** |
+| Episode Media | **4K Episode %**, **HDR Episode Count**, **Multi-Version Episode Count**, **Days Since Last Episode Added**, **Show Resolution (Raw)**, **Show HDR (Raw)** |
 
 The **Status** group also contains the movie release date fields: **Theatrical Release Date (Movies)**, **Digital Release Date (Movies)**, **Physical Release Date (Movies)**, the matching **Days Since ... Release** fields, **Days Since Home Release** and **Release Date Source (digital/physical/estimate)**. Release dates are stored as `YYYY-MM-DD`, so **begins with** `2026-12` matches December 2026. Days-since values go negative before the date. To test how long ago something was added or played, use **Days Since Added**, **Days Since Last Played** or **Days Since Last Episode Added**. [Overlay Variables](Overlay-Variables.md) lists what each field contains.
 
@@ -39,6 +39,16 @@ Text matching ignores case. **regex** matches anywhere in the text unless you an
 Fields that hold a list, such as **Radarr Tags**, **Audio Languages (All)**, **Subtitle Languages**, **Collection** and **Plex Label**, match when any item in the list matches. **Collection** only counts collections that exist in Plex.
 
 A rule fails when the item has no value for that field, apart from a few exceptions. **not equals** and **does not contain** match an absent field, while **exists** matches when set to `false`.
+
+### Items with more than one version
+
+Plex can hold two or more versions of the same movie or episode, for example an upgrade you kept next to the original. **Versions** is the number of versions Plex lists for the item, and **Has Multiple Versions** is a yes/no field that is true when that number is above 1. Two 1080p copies count as 2, the same as Plex's own duplicate filter.
+
+To match items with several versions, use `Has Multiple Versions` `equals` `true`, or `Versions` `greater than` `1`. Don't use `Versions` `not equals` `1`. When an item has no value for a field, most rules don't match it, but **not equals** does. Show and season posters never have a **Versions** value, so that rule would match every one of them. **greater than** and **Has Multiple Versions** don't have that problem.
+
+Movies and episodes get **Versions** from their own files. Show and season posters have no files, so they use **Has Multiple Versions** and **Multi-Version Episode Count** instead. These come from Episode Scanning, so turn on **Use episode files for quality badges** for the library. A show is true when any of its episodes (Specials left out) has more than one version. A season is true when one of its own episodes does. Season 0 (Specials) never gets a count. **Multi-Version Episode Count** is the number of such episodes. Until the first scan finishes, or when scanning is off, these fields are empty and rules on them don't match. **Test Specific Media** doesn't run the scan, so check show and season posters after a full sync. For a ready-made badge, see [Overlay Examples](Overlay-Examples.md#badge-items-with-more-than-one-version).
+
+The other file details, such as **Resolution** and **Audio Format**, still describe the first version only.
 
 Example, a NEW banner shown only on recent movies:
 

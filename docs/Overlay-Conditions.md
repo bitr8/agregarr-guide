@@ -55,13 +55,15 @@ AND Days Since Release (incl. release day) less than or equal 14
 
 Any element in an overlay template can have its own condition. Use this to put several versions of a badge in one template, for example a gold 4K label and a white 1080 label in the same spot, or a release ribbon that reads **TODAY**, **TOMORROW** or a countdown depending on the date.
 
-Select the element and tick **Show conditionally** in its **Properties**, then click **Edit Conditions**. The window works like the template's **Edit Application Conditions**, with the same fields, operators, sections and **AND** / **OR**. Elements with a condition are marked in the layer list. Untick **Show conditionally** to remove the condition.
+Select the element, scroll to the bottom of its **Properties**, and click **Edit Conditions** next to **Show conditionally**. This opens **Edit Element Conditions**. Tick **Always show (no condition)** to add rules, and its label changes to **Only show when:**. The window works like the template's **Edit Application Conditions**, with the same fields, operators, sections and **AND** / **OR**. Elements with a condition are marked in the layer list. Untick **Only show when:** to remove the condition.
 
 The element is drawn only when the template applies to the item and the element's own condition matches. On the editor canvas, elements whose condition doesn't match the preview poster are hidden, except the selected element, which is shown faded so you can still edit it. The editor checks conditions against a sample item: 4K, HDR and Dolby Vision, 7.1 audio, 14 days until release, next episode in 32 days and 5 days until Maintainerr acts, with the real title and ratings of the preview poster shown. The image on the template's card uses the same sample. Use **Test Specific Media** to see the other versions on real items.
 
 **Check Layout** knows that two elements can never show together when their conditions rule each other out, for example `Resolution equals 4K` and `Resolution equals 1080`, or `IMDb Rating greater than or equal 8` and `IMDb Rating less than 6`, and doesn't warn about them overlapping.
 
 **Variables:** A template can hold only one **Variable** element without a condition. You can add more Variable elements as long as each has a condition. When a Variable's field has no value for an item, the whole template is skipped for that item, tiles included. A Variable whose condition doesn't match doesn't count, so give each version of a text its own condition and only the one that shows needs its data.
+
+For a worked example, see [One banner that changes its wording](Overlay-Examples.md#one-banner-that-changes-its-wording).
 
 ---
 

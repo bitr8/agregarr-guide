@@ -113,9 +113,11 @@ This only changes the sort title, never the collection name. Move to End groups 
 
 ## Jobs
 
-**Settings > Jobs** lists the scheduled jobs. Each row shows a one-line description under the name, a **Last Run** badge, an **Edit** button for changing the frequency, and **Run Now**. These are the defaults:
+**Settings > Jobs** lists the scheduled jobs. Each row shows a one-line description under the name, a **Last Run** badge, an **Edit** button for changing the frequency, and **Run Now**. **Plex Refresh Token** runs on a fixed schedule, so it has no **Edit** button.
 
-![Settings > Jobs](images/settings-jobs.png)
+![Settings > Jobs, with some schedules changed from the defaults](images/settings-jobs.png)
+
+The defaults are:
 
 | Job | Default | What it does |
 |-----|---------|--------------|

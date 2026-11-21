@@ -16,7 +16,7 @@ Networks Top 10 collections pull data from FlixPatrol, which sits behind Cloudfl
 
 1. Run a solver next to Agregarr. There's a compose example below.
 2. In **Settings > Sources**, find **Cloudflare Solvers** under **Fetching Settings**. Press **Add Solver**, give it a name, and enter its URL, for example `http://flaresolverr:8191`.
-3. Add more instances if you want a fallback. Agregarr tries them in order. Drag a row using **Drag to reorder** to change its priority.
+3. Add more instances if you want a fallback. Agregarr tries them in order. Drag a row by its handle to change its priority.
 4. Press **Save Changes**.
 
 ![Cloudflare Solvers in Settings > Sources](images/cloudflare-solver.png)

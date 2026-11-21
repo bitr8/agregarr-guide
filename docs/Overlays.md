@@ -202,6 +202,7 @@ These were added in v2.9.0:
 
 - [Overlay Variables](Overlay-Variables.md): variables for release dates, seasons and episodes, editions, and collection ranks
 - [Overlay Conditions](Overlay-Conditions.md): show and hide rules for templates and individual elements
+- [Overlay Examples](Overlay-Examples.md): worked examples, such as one banner whose wording changes with the release date
 - [Color Scale](Color-Scale.md): tile colours that change with a numeric value
 - [Maintainerr Countdown](Maintainerr-Countdown.md): deletion countdowns for movies, shows, and seasons
 - [Episode Scanning](Episode-Scanning.md): resolution, HDR, Dolby Vision, and audio badges read from episode files

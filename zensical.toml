@@ -23,6 +23,7 @@ nav = [
     { "Overlays" = "Overlays.md" },
     { "Overlay Conditions" = "Overlay-Conditions.md" },
     { "Overlay Variables" = "Overlay-Variables.md" },
+    { "Overlay Examples" = "Overlay-Examples.md" },
     { "Color Scale" = "Color-Scale.md" },
     { "Episode Scanning" = "Episode-Scanning.md" },
     { "Maintainerr Countdown" = "Maintainerr-Countdown.md" },

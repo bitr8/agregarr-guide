@@ -44,7 +44,11 @@ This puts the season and episode code, for example `S01E05`, at the bottom right
 3. In the **Sync scope** table, tick **Episode cards** under **Full sync**, **Quick sync**, or both. Episode cards are off by default, and nothing is drawn on them until you tick this. This is the step people miss.
 4. Click **Save Configuration**. Then on the **Library Configuration** tab click **Full Overlays Sync**, then **Confirm Full Sync?**. Or use **Test Specific Media** to try a few episodes first.
 
+![Sync scope with Episode cards ticked under Full sync](images/example-episode-code-sync-scope.png)
+
 Each episode card gets a rounded black badge, about 60% opaque, with the code in white. A season 1 episode 5 shows `S01E05`, and the first Special shows `S00E01`. An episode with no season or episode number from Plex gets no badge.
+
+![An episode card with the S02E05 badge](images/example-episode-code.png)
 
 Every episode in the library gets its own card, and each one is drawn and uploaded to Plex. On a big library the first full sync takes a long time. Try a few episodes with **Test Specific Media** first.
 
@@ -77,6 +81,10 @@ This puts a small badge on items that Plex holds in more than one version, for e
 
 Each badge is a 60% black rounded tile with a white stacked-pages icon. Items with one version are left alone. A show or season gets the badge when one of its episodes has more than one version, and Specials don't count.
 
+![The Multiple Versions badge on a show poster](images/example-versions-poster.png)
+
+![The Multiple Versions - Episode Card badge](images/example-versions-episode.png)
+
 ### By hand, with a number
 
 1. Create a template and add a **Tile**. Add a **Variable** element on top of it. A new Variable starts with one **IMDb Rating** segment: change that segment's dropdown to **Versions**.
@@ -84,6 +92,8 @@ Each badge is a 60% black rounded tile with a white stacked-pages icon. Items wi
 3. Save, switch the template on for the library and run a sync.
 
 A movie with two files then shows `2`. Use `greater than` `1` or `Has Multiple Versions` `equals` `true` for the rule. `Versions` `not equals` `1` also matches every show and season poster, because those never have a **Versions** value. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version).
+
+![A movie poster with a Versions count of 2](images/example-versions-count.png)
 
 Only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details still come from the first one Plex lists.
 

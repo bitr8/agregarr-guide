@@ -25,6 +25,8 @@ Shows also get extra fields in the **Episode Media** group, including **4K Episo
 
 Shows and seasons also get **Multi-Version Episode Count** and **Has Multiple Versions**, from how many versions Plex lists for each episode. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version). **Days Since Last Episode Added** and **Last Episode Added Date** come from the same scan. See [Overlay Variables](Overlay-Variables.md#episode-media).
 
+The episode airing and finale fields come from Sonarr rather than this scan, so they work with **Use episode files for quality badges** switched off. See [Overlay Variables](Overlay-Variables.md#episodes-airing-today-last-aired-and-finales-also-in-the-coming-soon-group).
+
 ---
 
 ## How values are rolled up

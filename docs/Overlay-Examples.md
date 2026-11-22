@@ -86,3 +86,28 @@ Each badge is a 60% black rounded tile with a white stacked-pages icon. Items wi
 A movie with two files then shows `2`. Use `greater than` `1` or `Has Multiple Versions` `equals` `true` for the rule. `Versions` `not equals` `1` also matches every show and season poster, because those never have a **Versions** value. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version).
 
 Only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details still come from the first one Plex lists.
+
+---
+
+## Returning Today, all day
+
+The **Returning Today (Monitored)** preset adds `SEASON 4 TODAY` to a show on the day its new season premieres. It stays there for the rest of the day after the episode airs. Switch it on in **Library Configuration**. **Returning Today (Unmonitored)** does the same for shows Sonarr has but doesn't monitor, and for shows Sonarr doesn't have.
+
+Its condition is:
+
+![Edit Application Conditions with the Returning Today rules](images/example-returning-today-condition.png)
+
+- `Episodes Airing Today (TV) - Show Poster` `greater than` `0`: an episode is on today's schedule, before or after airtime.
+- `Today's Season Number (TV) - Show Poster` `greater than` `1`: excludes brand-new shows. Remove it if you want those as well.
+- `Today's Episode Number (TV) - Show Poster` `equals` `1`: today's episode opens a season. Without this, every weekly show gets the banner on each airing day.
+- **Media Type**, **In Sonarr** and **Is Monitored**, as used in the other Returning presets.
+
+**Days Until Next Season (TV)** `equals` `0` looks like the obvious rule, but it only holds until the premiere airs. A 13:00 premiere loses the banner on the next run after 13:00. The Unmonitored preset does use it for shows Sonarr doesn't have. TMDB only gives a date without a time, so it holds all day, but it's the network's date and can be a day off outside that country.
+
+The banner uses **Today's Season Number (TV) - Show Poster** instead of **Season Number**. On a show poster, **Season Number** is the next episode's season. It's empty after airtime when a whole season dropped at once.
+
+### Finale countdown
+
+The same fields can count down to a finale. Use a Variable element with **Add Text** `FINALE IN `, **Add Variable** **Days Until Next Finale (TV) - Show Poster**, and **Add Text** ` DAYS`. Set the template condition to `Days Until Next Finale (TV) - Show Poster` `less than or equal` `30` AND `Days Until Next Finale (TV) - Show Poster` `greater than` `1`, so it shows for the last month. The last two days get their own templates: `FINALE TOMORROW` with `Days Until Next Finale (TV) - Show Poster` `equals` `1`, so you never see `FINALE IN 1 DAYS`, and `FINALE TODAY` with `equals` `0`. An element inside the countdown template can't cover them, because that template's condition already rules out `0` and `1`. To leave out mid-season breaks, add `Next Finale Type (TV) - Show Poster` `in` `season, series` to all three.
+
+![FINALE IN 28 DAYS on a show poster](images/example-finale-countdown.png)

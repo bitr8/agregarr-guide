@@ -25,6 +25,8 @@ Each rule has a field, operator, and value. The dropdown groups fields like this
 
 The **Status** group also contains the movie release date fields: **Theatrical Release Date (Movies)**, **Digital Release Date (Movies)**, **Physical Release Date (Movies)**, the matching **Days Since ... Release** fields, **Days Since Home Release** and **Release Date Source (digital/physical/estimate)**. Release dates are stored as `YYYY-MM-DD`, so **begins with** `2026-12` matches December 2026. Days-since values go negative before the date. To test how long ago something was added or played, use **Days Since Added**, **Days Since Last Played** or **Days Since Last Episode Added**. [Overlay Variables](Overlay-Variables.md) lists what each field contains.
 
+The **Status** group also includes the Sonarr episode fields, such as **Episodes Airing Today (TV) - Show Poster**, **Days Until Next Finale (TV) - Show Poster** and **Next Finale Type (TV) - Show Poster**. These work on show posters only. For the finale type, use **equals** (`Next Finale Type (TV) - Show Poster` `equals` `series`). A **not equals** rule also matches shows with no finale flagged because the field is absent for those shows.
+
 ### Operators
 
 Available operators are **equals**, **not equals**, **greater than**, **greater than or equal**, **less than**, **less than or equal**, **contains**, **does not contain**, **regex**, **begins with**, **ends with**, **in** and **exists**. Each field only shows the operators that work for it:

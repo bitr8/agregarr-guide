@@ -37,7 +37,7 @@ Variables that hold a whole number get a **Number Format** dropdown under the va
 - **Pad to 2 digits (05)**: adds a leading zero up to two digits.
 - **Pad to 3 digits (005)**: adds leading zeros up to three digits.
 
-It is offered on these variables only: **Season Number**, **Episode Number**, **Total Seasons (TV)**, **Seasons in Plex (TV)**, **Missing Episode Count (TV)**, **Episode Count**, **4K Episode Count**, **HDR Episode Count**, **DV Episode Count**, **Multi-Version Episode Count**, **Versions**, **View Count**, **IMDb Top 250 Rank**, **Days Since Release (incl. release day)**, **Days Until Release**, **Days Until Next Episode (TV)**, **Days Until Next Season (TV)**, **Days Since Added**, **Days Since Last Played** and **Days Since Last Episode Added**. Variables that can be negative or hold a fraction don't get it, such as the **Days Since ... Release (Movies, negative before the date)** counts, **Days Since Next Season Premiered (TV)** and **Days Until Maintainerr Action**. Neither do years, runtimes, vote counts, percentages, file sizes, video and audio details, resolution, dates, ratings, scores, text variables or **Collection Rank**. If you change a segment to one of those variables, its format is reset to **Plain (5)**. A number that is already wider than the padding is left alone, so `123` stays `123` with **Pad to 2 digits (05)**. Negative numbers are never padded.
+It is offered on these variables only: **Season Number**, **Episode Number**, **Total Seasons (TV)**, **Seasons in Plex (TV)**, **Missing Episode Count (TV)**, **Episode Count**, **4K Episode Count**, **HDR Episode Count**, **DV Episode Count**, **Multi-Version Episode Count**, **Versions**, **View Count**, **IMDb Top 250 Rank**, **Days Since Release (incl. release day)**, **Days Until Release**, **Days Until Next Episode (TV)**, **Days Until Next Season (TV)**, **Episodes Airing Today**, **Today's Season Number**, **Today's Episode Number**, **Last Aired Season Number**, **Last Aired Episode Number**, **Episodes on Last Air Day**, **Episodes on Next Air Day**, **Next Finale Season Number**, **Next Finale Episode Number**, **Days Since Last Episode Aired**, **Days Until Next Finale**, **Days Since Last Finale** (all **(TV) - Show Poster**), **Days Since Added**, **Days Since Last Played** and **Days Since Last Episode Added**. Variables that can be negative or hold a fraction don't get it, such as the **Days Since ... Release (Movies, negative before the date)** counts, **Days Since Next Season Premiered (TV)** and **Days Until Maintainerr Action**. Neither do years, runtimes, vote counts, percentages, file sizes, video and audio details, resolution, dates, ratings, scores, text variables or **Collection Rank**. If you change a segment to one of those variables, its format is reset to **Plain (5)**. A number that is already wider than the padding is left alone, so `123` stays `123` with **Pad to 2 digits (05)**. Negative numbers are never padded.
 
 A variable left on **Plain**, and every template saved before this option existed, prints exactly as before. The canvas shows the padded number, including the sample value it uses when it has no real item to read.
 
@@ -60,7 +60,7 @@ Movie dates follow the country set in **Watch Provider Region** under **Settings
 | **Days Since Physical Release (Movies, negative before the date)** | Same, for the physical date. | Movies |
 | **Days Since Home Release (Digital or Physical, negative before the date)** | Same, counted from the earlier of the digital and physical dates. | Movies |
 | **Release Date Source (digital/physical/estimate)** | Where the release date came from: `digital`, `physical`, `estimate` (theatrical plus 90 days) or `tmdb` (a single date with no release types). | Movies |
-| **Days Since Next Season Premiered (TV)** | Days since the most recent season premiere, for example `7`. Specials and seasons that have not aired are ignored. It keeps counting after the show's next episode moves on. The template card can't show a sample for it, so a template that needs it looks empty there. | TV shows |
+| **Days Since Next Season Premiered (TV)** | Days since the most recent season premiere, for example `7`. Specials and seasons that have not aired are ignored. When Sonarr has the show, the count starts at the premiere's air time in your server's time zone, and it's empty if Sonarr has no air date for that premiere. Otherwise it uses TMDB's date, which is the day the network aired it, so outside that country it can be a day early. It keeps counting after the show's next episode moves on. The template card can't show a sample for it, so a template that needs it looks empty there. | TV shows |
 
 For a Coming Soon movie, if Radarr has a digital or physical date, Agregarr uses the earlier one as the release date. **Release Date Is Estimated** is then `false`. A date Radarr doesn't have still comes from TMDB, so **Physical Release Date (Movies)** keeps TMDB's physical date when Radarr only knows the digital one.
 
@@ -83,7 +83,37 @@ On an episode card, both numbers come from Plex, so Specials show season `0` (`S
 
 ### On season and episode artwork
 
-Season and episode artwork don't get the release date variables, the TV schedule variables (next episode, next season), **Missing Episode Count (TV)**, or the Radarr and Sonarr status fields. Those stay empty there, so a template that needs them is skipped. **Total Seasons (TV)** and the show's TMDB details carry over from the show.
+Season and episode artwork don't get the release date variables, the TV schedule variables (next episode, next season, episodes airing today, last aired and finales), **Missing Episode Count (TV)**, or the Radarr and Sonarr status fields. Those stay empty there, so a template that needs them is skipped. **Total Seasons (TV)** and the show's TMDB details carry over from the show.
+
+---
+
+## Episodes airing today, last aired and finales (also in the Coming Soon group)
+
+These fields come from Sonarr's episode list, so they only appear for shows Sonarr tracks. Shows that aren't in Sonarr get none of them. Specials and episodes without an air date don't count. Days use calendar days in your server's time zone, the same as the other day counts. In the editor, they end in **- Show Poster** because only show posters get them for now.
+
+| Variable | What it contains | Applies to |
+|----------|------------------|------------|
+| **Episodes Airing Today (TV) - Show Poster** | The number of episodes airing today, for example `1`, whether they've aired yet or not. `0` on other days. A show at 20:00 still reads `1` at 21:00, then reads `0` once the poster is next processed after midnight. | TV shows |
+| **Today's Season Number (TV) - Show Poster**, **Today's Episode Number (TV) - Show Poster** | The first of today's episodes, for example `4` and `1`. Empty on days with no episode. | TV shows |
+| **Last Aired Episode Date (TV) - Show Poster** | When the most recent episode aired. It takes a **Date Format**. | TV shows |
+| **Days Since Last Episode Aired (TV) - Show Poster** | The number of days since that episode, for example `2`. `0` for the rest of the day it aired. | TV shows |
+| **Last Aired Season Number (TV) - Show Poster**, **Last Aired Episode Number (TV) - Show Poster** | The most recent episode's numbers. When a full season drops at once, this is the last one, for example `8`. | TV shows |
+| **Episodes on Last Air Day (TV) - Show Poster** | The number of episodes that aired on the same day, for example `8` when a whole season dropped together. | TV shows |
+| **Episodes on Next Air Day (TV) - Show Poster** | The number of episodes still to air on the next day that has one, for example `10`. Empty when nothing is scheduled. | TV shows |
+| **Next Finale Type (TV) - Show Poster** | `season`, `series` or `midseason`, for the next finale Sonarr knows about. Empty when none is flagged. | TV shows |
+| **Next Finale Date (TV) - Show Poster** | When that finale airs. It takes a **Date Format**. | TV shows |
+| **Days Until Next Finale (TV) - Show Poster** | The number of days until it, for example `6`. `0` for all of finale day, before and after it airs. | TV shows |
+| **Next Finale Season Number (TV) - Show Poster**, **Next Finale Episode Number (TV) - Show Poster** | Its numbers, for example `2` and `10`. | TV shows |
+| **Last Finale Type (TV) - Show Poster**, **Last Finale Date (TV) - Show Poster** | The type and date of the most recent finale that has aired. | TV shows |
+| **Days Since Last Finale (TV) - Show Poster** | The number of days since it, for example `3`. `0` for the rest of finale day. | TV shows |
+
+Finales come only from Sonarr's finale flag, which Sonarr gets from TheTVDB. Agregarr doesn't guess a finale from the show's status or the last episode listed. The flag is occasionally missing or attached to the wrong episode. Agregarr uses it as it is.
+
+On finale day, the next finale fields point to today's finale all day. Once it has aired, the last finale fields point to it as well. That lets you show `FINALE TODAY` all day, then `FINALE 3 DAYS AGO` afterwards.
+
+The extra Sonarr calls only happen in libraries where a template uses one of these fields. That's one episode list per tracked show per run, from each Sonarr instance that has the show. If Sonarr can't be reached, the show keeps its current poster until the next run.
+
+A poster only changes when it's processed again, either by the full overlay run or when a collection sync touches the item. Quick sync only handles items that don't have overlays yet. With the full run's default schedule of 03:00, a `TODAY` badge can appear and clear up to three hours after midnight. If that matters, run it more often under **Settings > Jobs**.
 
 ---
 

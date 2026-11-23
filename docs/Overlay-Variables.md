@@ -64,6 +64,8 @@ Movie dates follow the country set in **Watch Provider Region** under **Settings
 
 For a Coming Soon movie, if Radarr has a digital or physical date, Agregarr uses the earlier one as the release date. **Release Date Is Estimated** is then `false`. A date Radarr doesn't have still comes from TMDB, so **Physical Release Date (Movies)** keeps TMDB's physical date when Radarr only knows the digital one.
 
+For a TV show, the release date (and **Days Until Release** and **Days Since Release (incl. release day)**) is the show's first air date. When Sonarr has the show, that's the day episode 1 airs in your server's time zone, so a US show that airs on the evening of the 24th counts down to the 25th in Australia. Otherwise it's TMDB's date, the day the network aired it, which can be a day early outside that country.
+
 ---
 
 ## Seasons and episodes (also in the Coming Soon group)

@@ -16,7 +16,7 @@ Agregarr takes the collection's delete-after days and subtracts the whole days s
 
 ![Poster with the Maintainerr Deleting Soon preset showing DELETING IN 5 DAYS](images/maintainerr-poster.png)
 
-Negative numbers mean the item is overdue. The **Maintainerr Deleting Soon** preset only applies when **Days Until Maintainerr Action** is 0 or more, so it won't draw a banner for overdue items. Custom templates can handle the number differently (see [Overlay Variables](Overlay-Variables.md#other-variables)).
+Negative numbers mean the item is overdue. The **Maintainerr Deleting Soon** preset only applies when **Days Until Maintainerr Action** is 0 or more, so it won't draw a banner for overdue items. One day out it reads DELETING TOMORROW, and on the day itself DELETING TODAY. Custom templates can handle the number differently (see [Overlay Variables](Overlay-Variables.md#other-variables)).
 
 ---
 

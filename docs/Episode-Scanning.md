@@ -21,7 +21,7 @@ Scanning runs during the library's full overlay sync. Quick syncs and collection
 
 With the toggle on, show and season posters use the rolled-up values in the usual fields. That means **Resolution**, **HDR**, **Dolby Vision**, **Dolby Vision Profile**, **HDR10+**, **Video Codec**, **Audio Codec**, **Audio Profile**, **Audio Channels** and **Bit Depth** describe the episodes. Presets such as **4K Resolution**, **HDR10**, **Dolby Vision** and **Resolution** already use these fields, so they'll follow the roll-up without any changes.
 
-Shows also get extra fields in the **Episode Media** group, including **4K Episode %**, **HDR Episode Count** and **DV Episode %**. **Media Source (aggregated/show)** shows whether the poster used the roll-up (`aggregated`) or Plex's own show details (`show`). Raw fields such as **Show Resolution (Raw)** and **Show HDR (Raw)** keep Plex's show-level values.
+Shows also get extra fields in the **Episode Media** group, including **4K Episode %**, **HD Episode Count**, **SD Episode %**, **HDR Episode Count** and **DV Episode %**. **Media Source (aggregated/show)** shows whether the poster used the roll-up (`aggregated`) or Plex's own show details (`show`). Raw fields such as **Show Resolution (Raw)** and **Show HDR (Raw)** keep Plex's show-level values.
 
 Shows and seasons also get **Multi-Version Episode Count** and **Has Multiple Versions**, from how many versions Plex lists for each episode. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version). **Days Since Last Episode Added** and **Last Episode Added Date** come from the same scan. See [Overlay Variables](Overlay-Variables.md#episode-media).
 
@@ -33,16 +33,37 @@ The episode airing and finale fields come from Sonarr rather than this scan, so 
 
 | Value | Rule |
 |-------|------|
-| Resolution, video codec, audio codec, audio channels, bit depth | The most common value among the episodes. For resolution, a tie goes to the higher resolution. |
+| Resolution, video codec, audio codec, audio channels, bit depth | The most common value among the episodes. A resolution tie goes to `4k`, then `1080`, `720` and `480`, then any other value. |
 | Audio Profile (Atmos, DTS:X and so on) | The most common value. A tie goes to the better format. |
 | HDR, Dolby Vision, HDR10+ | On when at least half of the episodes have it. |
 | Dolby Vision Profile | The most common profile among the Dolby Vision episodes. |
-| Counts and percentages | Number of episodes with 4K, HDR or Dolby Vision, and that number as a percentage of the episodes counted, rounded to a whole number. |
+| Counts and percentages | Number of episodes with 4K, HD, SD, HDR or Dolby Vision, and that number as a percentage of the episodes counted, rounded to a whole number. |
+| Resolution groups | Each episode is in exactly one group, so **4K**, **HD**, **SD** and **Unknown Resolution** add up to **Episode Count**. 4K is `4k`. HD is `720`, `1080` and `2k`. SD is `576`, `480`, `sd` and any other number below `720`. Unknown is an episode Plex reports no resolution for, or a value outside those. In the rolled-up **Resolution**, an episode with no resolution still counts as `sd`, as before. |
 | Multi-Version Episode Count | Number of episodes that have more than one file in Plex. |
+
+**Episodes with more than one version** count once, using the highest-resolution version. Every value for that episode, including HDR and Dolby Vision, comes from that version.
+
+**Trailer placeholders** that Agregarr creates for Coming Soon (`Season 00/S00E00.Trailer.mp4`) aren't counted anywhere: not in the show roll-up and not on the Specials season poster.
 
 **Shows.** Season 0 (Specials) is left out of the quality roll-up. If a show only has specials, it uses those instead. **Days Since Last Episode Added** still counts specials.
 
 **Seasons.** Each season is rolled up from its own episodes. Season posters only get these badges when season artwork is included in the library sync. Tick **Season posters** under **Full sync** (or **Quick sync**) in the library's **Sync scope** table, then use a template with **Season poster** selected under **Artwork Targets**.
+
+---
+
+## Partly HD and Partly 4K badges
+
+The resolution counts let one badge describe a mixed show. Make one template per badge, so exactly one matches. Use counts throughout, since percentages are rounded:
+
+- **4K**: `4K Episode Count` `greater than` `0` AND `HD Episode Count`, `SD Episode Count` and `Unknown Resolution Episode Count` all `equals` `0`.
+- **Partly 4K**: `4K Episode Count` `greater than` `0` AND (`HD Episode Count` `greater than` `0` OR `SD Episode Count` `greater than` `0` OR `Unknown Resolution Episode Count` `greater than` `0`).
+- **HD**: `HD Episode Count` `greater than` `0` AND `4K Episode Count`, `SD Episode Count` and `Unknown Resolution Episode Count` all `equals` `0`.
+- **Partly HD**: `HD Episode Count` `greater than` `0` AND `4K Episode Count` `equals` `0` AND (`SD Episode Count` `greater than` `0` OR `Unknown Resolution Episode Count` `greater than` `0`).
+- **SD**: `HD Episode Count` and `4K Episode Count` both `equals` `0` AND (`SD Episode Count` `greater than` `0` OR `Unknown Resolution Episode Count` `greater than` `0`).
+
+For the bracketed part, put the OR rules in a section of their own and join it to the first section with AND. Leave out the `Unknown Resolution Episode Count` rules if you'd rather unknown episodes didn't decide a badge.
+
+Use counts rather than percentages for "any" or "none". Percentages are rounded, so 1 SD episode out of 300 reads as `0`%.
 
 ---
 

@@ -21,11 +21,11 @@ Each rule has a field, operator, and value. The dropdown groups fields like this
 | Ratings | **IMDb Rating**, **RT Critics Score**, **Is IMDb Top 250**, **Plex User Rating** |
 | Collections | **Collection** (membership in an Agregarr or Plex collection) |
 | Status | **Media Type (movie/show)**, **Days Until Release**, **Release Date Is Estimated**, **Downloaded**, **Is Monitored**, **Total Seasons (TV)**, **Missing Episode Count (TV)**, **Radarr Tags**, **Plex Label**, **Days Until Maintainerr Action** |
-| Episode Media | **4K Episode %**, **HDR Episode Count**, **Multi-Version Episode Count**, **Days Since Last Episode Added**, **Show Resolution (Raw)**, **Show HDR (Raw)** |
+| Episode Media | **4K Episode %**, **HD Episode Count**, **SD Episode Count**, **HDR Episode Count**, **Multi-Version Episode Count**, **Days Since Last Episode Added**, **Show Resolution (Raw)**, **Show HDR (Raw)** |
 
 The **Status** group also contains the movie release date fields: **Theatrical Release Date (Movies)**, **Digital Release Date (Movies)**, **Physical Release Date (Movies)**, the matching **Days Since ... Release** fields, **Days Since Home Release** and **Release Date Source (digital/physical/estimate)**. Release dates are stored as `YYYY-MM-DD`, so **begins with** `2026-12` matches December 2026. Days-since values go negative before the date. To test how long ago something was added or played, use **Days Since Added**, **Days Since Last Played** or **Days Since Last Episode Added**. [Overlay Variables](Overlay-Variables.md) lists what each field contains.
 
-The **Status** group also includes the Sonarr episode fields, such as **Episodes Airing Today (TV) - Show Poster**, **Days Until Next Finale (TV) - Show Poster** and **Next Finale Type (TV) - Show Poster**. These work on show posters only. For the finale type, use **equals** (`Next Finale Type (TV) - Show Poster` `equals` `series`). A **not equals** rule also matches shows with no finale flagged because the field is absent for those shows.
+The **Status** group also includes the Sonarr episode fields, such as **Episodes Airing Today (TV) - Show Poster**, **Days Until Next Finale (TV) - Show Poster** and **Next Finale Type (TV) - Show Poster**. These work on show posters only. **Next Episode Already Downloaded (TV) - Show Poster** and **Next Season Premiere Already Downloaded (TV) - Show Poster** are yes/no fields; use **not equals** **true** to hide a countdown for something you already have, since shows Sonarr doesn't track have no value. For the finale type, use **equals** (`Next Finale Type (TV) - Show Poster` `equals` `series`). A **not equals** rule also matches shows with no finale flagged because the field is absent for those shows.
 
 ### Operators
 
@@ -50,7 +50,7 @@ To match items with several versions, use `Has Multiple Versions` `equals` `true
 
 Movies and episodes get **Versions** from their own files. Show and season posters have no files, so they use **Has Multiple Versions** and **Multi-Version Episode Count** instead. These come from Episode Scanning, so turn on **Use episode files for quality badges** for the library. A show is true when any of its episodes (Specials left out) has more than one version. A season is true when one of its own episodes does. Season 0 (Specials) never gets a count. **Multi-Version Episode Count** is the number of such episodes. Until the first scan finishes, or when scanning is off, these fields are empty and rules on them don't match. **Test Specific Media** doesn't run the scan, so check show and season posters after a full sync. For a ready-made badge, see [Overlay Examples](Overlay-Examples.md#badge-items-with-more-than-one-version).
 
-The other file details, such as **Resolution** and **Audio Format**, still describe the first version only.
+On movie posters and episode cards, the other file details, such as **Resolution** and **Audio Format**, still describe the first version only. Show and season roll-ups from [Episode Scanning](Episode-Scanning.md) instead take every value, including HDR and Dolby Vision, from each episode's highest-resolution version.
 
 Example, a NEW banner shown only on recent movies:
 

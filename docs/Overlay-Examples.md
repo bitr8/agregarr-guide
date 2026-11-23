@@ -95,7 +95,7 @@ A movie with two files then shows `2`. Use `greater than` `1` or `Has Multiple V
 
 ![A movie poster with a Versions count of 2](images/example-versions-count.png)
 
-Only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details still come from the first one Plex lists.
+On movie posters and episode cards, only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details come from the first one Plex lists. Show and season roll-ups take every value from each episode's highest-resolution version.
 
 ---
 
@@ -112,7 +112,7 @@ Its condition is:
 - `Today's Episode Number (TV) - Show Poster` `equals` `1`: today's episode opens a season. Without this, every weekly show gets the banner on each airing day.
 - **Media Type**, **In Sonarr** and **Is Monitored**, as used in the other Returning presets.
 
-A premiere that Sonarr imported before its scheduled air time, such as an early streaming release, gets the banner on the day it arrived instead of its broadcast day. It counts as aired from its import time, so the broadcast day isn't an airing day for it. See [Episodes that arrive early](Overlay-Variables.md#episodes-that-arrive-early).
+The banner follows the broadcast day, even for a premiere Sonarr downloaded early, so `SEASON 4 TODAY` shows on the day it airs. **Returning Soon (Monitored)**, **Returning Soon (Unmonitored)**, **Returning Tomorrow (Monitored)** and **Returning Tomorrow (Unmonitored)** skip a season whose premiere is already downloaded, so you won't see `SEASON 4 TOMORROW` for a season you already have. They use `Next Season Premiere Already Downloaded (TV) - Show Poster` `not equals` `true`. Shows Sonarr doesn't track are unaffected.
 
 **Days Until Next Season (TV)** `equals` `0` looks like the obvious rule, but it only holds until the premiere airs. A 13:00 premiere loses the banner on the next run after 13:00. The Unmonitored preset does use it for shows Sonarr doesn't have. TMDB only gives a date without a time, so it holds all day, but it's the network's date and can be a day off outside that country.
 

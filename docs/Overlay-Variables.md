@@ -60,7 +60,7 @@ Movie dates follow the country set in **Watch Provider Region** under **Settings
 | **Days Since Physical Release (Movies, negative before the date)** | Same, for the physical date. | Movies |
 | **Days Since Home Release (Digital or Physical, negative before the date)** | Same, counted from the earlier of the digital and physical dates. | Movies |
 | **Release Date Source (digital/physical/estimate)** | Where the release date came from: `digital`, `physical`, `estimate` (theatrical plus 90 days) or `tmdb` (a single date with no release types). | Movies |
-| **Days Since Next Season Premiered (TV)** | Days since the most recent season premiere, for example `7`. Specials and seasons that have not aired are ignored. When Sonarr has the show, the count starts at the premiere's air time in your server's time zone, and it's empty if Sonarr has no air date for that premiere. Otherwise it uses TMDB's date, which is the day the network aired it, so outside that country it can be a day early. It keeps counting after the show's next episode moves on. The template card can't show a sample for it, so a template that needs it looks empty there. | TV shows |
+| **Days Since Next Season Premiered (TV)** | Days since the most recent season premiere, for example `7`. Specials and seasons that have not aired are ignored. When Sonarr has the show, the count starts at the premiere's air time in your server's time zone, and it's empty if Sonarr has no air date for that premiere. Otherwise it uses TMDB's date, which is the day the network aired it, so outside that country it can be a day early. It keeps counting after the show's next episode moves on. For a show Sonarr tracks, a premiere that Sonarr imported early counts from the import time, see [Episodes that arrive early](#episodes-that-arrive-early). The template card can't show a sample for it, so a template that needs it looks empty there. | TV shows |
 
 For a Coming Soon movie, if Radarr has a digital or physical date, Agregarr uses the earlier one as the release date. **Release Date Is Estimated** is then `false`. A date Radarr doesn't have still comes from TMDB, so **Physical Release Date (Movies)** keeps TMDB's physical date when Radarr only knows the digital one.
 
@@ -90,6 +90,15 @@ Season and episode artwork don't get the release date variables, the TV schedule
 ## Episodes airing today, last aired and finales (also in the Coming Soon group)
 
 These fields come from Sonarr's episode list, so they only appear for shows Sonarr tracks. Shows that aren't in Sonarr get none of them. Specials and episodes without an air date don't count. Days use calendar days in your server's time zone, the same as the other day counts. In the editor, they end in **- Show Poster** because only show posters get them for now.
+
+### Episodes that arrive early
+
+An episode Sonarr imported before its scheduled air time, such as an early streaming release, counts as aired from the time Sonarr imported it. That applies to every field in this section, to **Days Since Next Season Premiered (TV)**, and to the next episode and next season countdowns, for shows Sonarr tracks. For example, a premiere scheduled for Monday 13:00 but imported on Friday is the last aired episode from Friday, and Friday is its airing day. Monday is not, and the countdown moves on to the next scheduled episode, or clears if Sonarr has none.
+
+- Agregarr only checks import times for upcoming episodes and those that aired in the last 14 days. After that, the episode goes back to its scheduled air time.
+- Agregarr reads the import time of the file Sonarr has now. A quality upgrade imported after the broadcast replaces it, so that episode goes back to its scheduled air time.
+- If Sonarr can't return the file details, the episode keeps its scheduled air time for that run.
+- Episodes imported after they aired, which covers almost everything, keep their air time.
 
 | Variable | What it contains | Applies to |
 |----------|------------------|------------|

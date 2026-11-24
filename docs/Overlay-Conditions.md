@@ -50,7 +50,7 @@ To match items with several versions, use `Has Multiple Versions` `equals` `true
 
 Movies and episodes get **Versions** from their own files. Show and season posters have no files, so they use **Has Multiple Versions** and **Multi-Version Episode Count** instead. These come from Episode Scanning, so turn on **Use episode files for quality badges** for the library. A show is true when any of its episodes (Specials left out) has more than one version. A season is true when one of its own episodes does. Season 0 (Specials) never gets a count. **Multi-Version Episode Count** is the number of such episodes. Until the first scan finishes, or when scanning is off, these fields are empty and rules on them don't match. **Test Specific Media** doesn't run the scan, so check show and season posters after a full sync. For a ready-made badge, see [Overlay Examples](Overlay-Examples.md#badge-items-with-more-than-one-version).
 
-On movie posters and episode cards, the other file details, such as **Resolution** and **Audio Format**, still describe the first version only. Show and season roll-ups from [Episode Scanning](Episode-Scanning.md) instead take every value, including HDR and Dolby Vision, from each episode's highest-resolution version.
+On movie posters and episode cards, the other file details, such as **Resolution** and **Audio Format**, still describe the first version only. On show and season posters, [Episode Scanning](Episode-Scanning.md) instead rolls up **Resolution**, **HDR**, **Dolby Vision**, **HDR10+**, the video and audio codecs, **Audio Channels** and **Bit Depth** from each episode's highest-resolution version. **Audio Format** isn't rolled up.
 
 Example, a NEW banner shown only on recent movies:
 

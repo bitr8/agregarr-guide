@@ -91,11 +91,11 @@ Each badge is a 60% black rounded tile with a white stacked-pages icon. Items wi
 2. Under **Application Condition**, click **Edit Conditions**, tick **Only apply when:** and set the rule to `Versions` `greater than` `1`.
 3. Save, switch the template on for the library and run a sync.
 
-A movie with two files then shows `2`. Use `greater than` `1` or `Has Multiple Versions` `equals` `true` for the rule. `Versions` `not equals` `1` also matches every show and season poster, because those never have a **Versions** value. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version).
+A movie with two Plex versions then shows `2`. Use `greater than` `1` or `Has Multiple Versions` `equals` `true` for the rule. `Versions` `not equals` `1` also matches every show and season poster, because those never have a **Versions** value. See [Overlay Conditions](Overlay-Conditions.md#items-with-more-than-one-version).
 
 ![A movie poster with a Versions count of 2](images/example-versions-count.png)
 
-On movie posters and episode cards, only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details come from the first one Plex lists. Show and season roll-ups take every value from each episode's highest-resolution version.
+On movie posters and episode cards, only the count and the yes/no fields look at every version. **Resolution**, **HDR** and the other file details come from the first one Plex lists. On show and season posters, Episode Scanning rolls up **Resolution**, **HDR**, **Dolby Vision**, **HDR10+**, the video and audio codecs, **Audio Channels** and **Bit Depth** from each episode's highest-resolution version. Other fields, such as **Audio Format**, aren't rolled up.
 
 ---
 
@@ -112,7 +112,7 @@ Its condition is:
 - `Today's Episode Number (TV) - Show Poster` `equals` `1`: today's episode opens a season. Without this, every weekly show gets the banner on each airing day.
 - **Media Type**, **In Sonarr** and **Is Monitored**, as used in the other Returning presets.
 
-The banner follows the broadcast day, even for a premiere Sonarr downloaded early, so `SEASON 4 TODAY` shows on the day it airs. **Returning Soon (Monitored)**, **Returning Soon (Unmonitored)**, **Returning Tomorrow (Monitored)** and **Returning Tomorrow (Unmonitored)** skip a season whose premiere is already downloaded, so you won't see `SEASON 4 TOMORROW` for a season you already have. They use `Next Season Premiere Already Downloaded (TV) - Show Poster` `not equals` `true`. Shows Sonarr doesn't track are unaffected.
+The banner follows the broadcast day, even for a premiere Sonarr downloaded early, so `SEASON 4 TODAY` shows on the day it airs. With Sonarr, **Returning Soon (Monitored)**, **Returning Soon (Unmonitored)**, **Returning Tomorrow (Monitored)** and **Returning Tomorrow (Unmonitored)** skip a season whose premiere is already downloaded, so you won't see `SEASON 4 TOMORROW` for a season you already have. They use `Next Season Premiere Already Downloaded (TV) - Show Poster` `not equals` `true`. Without Sonarr, or for a show Sonarr doesn't track, that rule has no value and the countdown shows as before.
 
 **Days Until Next Season (TV)** `equals` `0` looks like the obvious rule, but it only holds until the premiere airs. A 13:00 premiere loses the banner on the next run after 13:00. The Unmonitored preset does use it for shows Sonarr doesn't have. TMDB only gives a date without a time, so it holds all day, but it's the network's date and can be a day off outside that country.
 

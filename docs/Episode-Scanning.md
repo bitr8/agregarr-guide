@@ -39,7 +39,7 @@ The episode airing and finale fields come from Sonarr rather than this scan, so 
 | Dolby Vision Profile | The most common profile among the Dolby Vision episodes. |
 | Counts and percentages | Number of episodes with 4K, HD, SD, HDR or Dolby Vision, and that number as a percentage of the episodes counted, rounded to a whole number. |
 | Resolution groups | Each episode is in exactly one group, so **4K**, **HD**, **SD** and **Unknown Resolution** add up to **Episode Count**. 4K is `4k`. HD is `720`, `1080` and `2k`. SD is `576`, `480`, `sd` and any other number below `720`. Unknown is an episode Plex reports no resolution for, or a value outside those. In the rolled-up **Resolution**, an episode with no resolution still counts as `sd`, as before. |
-| Multi-Version Episode Count | Number of episodes that have more than one file in Plex. |
+| Multi-Version Episode Count | Number of episodes that have more than one version in Plex. |
 
 **Episodes with more than one version** count once, using the highest-resolution version. Every value for that episode, including HDR and Dolby Vision, comes from that version.
 

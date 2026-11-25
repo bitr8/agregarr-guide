@@ -6,6 +6,13 @@ Cycle Lists lets several lists share one row on your Plex Home. You create one c
 
 Only the list currently showing is fetched. The others wait their turn and don't exist as collections in your library until then.
 
+## Rotation or Cycle Lists?
+
+Rotation does a similar job for collections you already have. They suit different starting points:
+
+- **Cycle Lists**: you have lots of lists (Trakt, Letterboxd, IMDb) and want them to take turns in one row. Only the list showing exists as a collection.
+- **Rotation**: you already have collections in Plex, made by Agregarr, by hand or by another tool, and want a few of them on Home at a time. Every collection stays in your library; the rotation changes whether it shows on Home and Library Recommended, and where.
+
 ## Set it up
 
 1. Open the collections page and click **Add Collection**.

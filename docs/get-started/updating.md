@@ -4,7 +4,7 @@ Pull a newer image, recreate the container, and choose which release line you wa
 
 ## Before you start
 
-- Agregarr is running from a Compose file (see [Install with Docker Compose](install-docker.md)).
+- Agregarr is running from a Compose file (see [Install with Docker Compose](install-docker.md) or [Install on Unraid](install-unraid.md)).
 - Your config folder is mounted. An update replaces the container, not that folder.
 
 ## Update

@@ -4,7 +4,7 @@ Once you've finished this page, Agregarr will be signed in to your Plex account,
 
 ## What you need
 
-- Agregarr running and reachable in a browser. If it isn't, start with [Install with Docker Compose](install-docker.md).
+- Agregarr running and reachable in a browser. If it isn't, start with [Install with Docker Compose](install-docker.md) or [Install on Unraid](install-unraid.md).
 - The Plex account that owns your Plex server. The first account to sign in becomes the admin.
 - The address and port of your Plex server as Agregarr sees it, for example `192.0.2.10` and `32400`.
 - Pop-up windows allowed for the Agregarr address. Plex sign-in opens in one.

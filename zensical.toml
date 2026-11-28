@@ -1,6 +1,6 @@
 [project]
-site_name = "Agregarr (bitr8 fork) Guide"
-site_description = "Documentation for the features specific to the bitr8/agregarr fork."
+site_name = "Agregarr Guide"
+site_description = "User guide for Agregarr, the Plex collections and poster overlay manager."
 site_url = "https://bitr8.github.io/agregarr-guide/"
 docs_dir = "docs"
 repo_url = "https://github.com/bitr8/agregarr-guide"
@@ -12,12 +12,24 @@ extra_css = [
 ]
 nav = [
   { "Home" = "index.md" },
+  { "Get started" = [
+    { "Install with Docker Compose" = "get-started/install-docker.md" },
+    { "First run: the setup wizard" = "get-started/setup-wizard.md" },
+    { "Your first collection" = "get-started/first-collection.md" },
+    { "How Agregarr works" = "get-started/how-it-works.md" },
+    { "Finding your way around" = "get-started/finding-your-way.md" },
+    { "Updating and image tags" = "get-started/updating.md" },
+  ] },
   { "Collections" = [
     { "Collections" = "Collections.md" },
     { "Cycle Lists" = "Cycle-Lists.md" },
-    { "Rotation" = "Rotation.md" },
     { "TMDB Custom Advanced Filters" = "TMDB-Advanced-Filters.md" },
     { "Export and Import" = "Collection-Export-Import.md" },
+  ] },
+  { "Where collections appear" = [
+    { "Rotation" = "Rotation.md" },
+  ] },
+  { "Missing items and placeholders" = [
     { "Placeholders" = "Placeholders.md" },
   ] },
   { "Overlays" = [
@@ -29,13 +41,17 @@ nav = [
     { "Episode Scanning" = "Episode-Scanning.md" },
     { "Maintainerr Countdown" = "Maintainerr-Countdown.md" },
   ] },
-  { "Running it" = [
+  { "Connect services" = [
     { "Integrations" = "Integrations.md" },
-    { "Health Checks" = "Health-Checks.md" },
+  ] },
+  { "Run and maintain" = [
     { "Settings" = "Settings.md" },
+    { "Health Checks" = "Health-Checks.md" },
     { "Performance" = "Performance.md" },
   ] },
-  { "Contributing" = "Contributing.md" },
+  { "About" = [
+    { "Contributing" = "Contributing.md" },
+  ] },
 ]
 
 [project.theme]

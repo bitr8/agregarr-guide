@@ -4,7 +4,7 @@ Agregarr adds Maintainerr deletion countdowns to movie, show, and season posters
 
 ## Setup
 
-1. Connect Maintainerr. See [Integrations](Integrations.md#maintainerr).
+1. Connect Maintainerr. See [Integrations](services/maintainerr.md).
 2. Turn on the **Maintainerr Deleting Soon** preset, or any template using the **Days Until Maintainerr Action** variable, in **Posters > Poster Overlays > Library Configuration**.
 3. Show libraries also get **Show poster countdown** and **Season deletion countdown** controls in the same **Configure** window.
 

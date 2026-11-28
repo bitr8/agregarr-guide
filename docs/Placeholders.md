@@ -2,7 +2,7 @@
 
 A placeholder is a short trailer file that Agregarr puts in your Plex library for something you don't have yet. It lets a collection show the item, with an overlay such as a release date, before the real file arrives. When the real movie or show turns up, Agregarr removes the placeholder.
 
-Trailer sources are covered in [Integrations](Integrations.md#tmdb-trailer-resolution).
+Trailer sources are covered in [Integrations](services/trailers.md#what-agregarr-uses-trailers-for).
 
 ## Fork additions
 
@@ -231,7 +231,7 @@ After a scoped scan, Agregarr may empty the whole library's trash when Plex's ow
 
 ## Seerr
 
-Seerr sees placeholder files as real media and marks the title as available, so nobody can request it. Turn on **Keep placeholder ignore patterns in Seerr** in the Seerr connection window. Agregarr adds two patterns to Seerr's **Ignored Path Patterns**, one for the movie file (`{edition-Trailer}.mp4`) and one for the TV file (`Season 00/S00E00.Trailer.mp4`), and puts them back on each full collection sync if they go missing. This needs a Seerr build that has that setting. See [Integrations](Integrations.md#seerr).
+Seerr sees placeholder files as real media and marks the title as available, so nobody can request it. Turn on **Keep placeholder ignore patterns in Seerr** in the Seerr connection window. Agregarr adds two patterns to Seerr's **Ignored Path Patterns**, one for the movie file (`{edition-Trailer}.mp4`) and one for the TV file (`Season 00/S00E00.Trailer.mp4`), and puts them back on each full collection sync if they go missing. This needs a Seerr build that has that setting. See [Integrations](services/seerr.md).
 
 ---
 

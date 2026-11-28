@@ -14,7 +14,7 @@ Every check finishes as OK, warning, error, or skipped. Skipped means the check 
 | Radarr Connection | The same, for Radarr. | Same as Sonarr. |
 | TMDB Connection | TMDB answers. | Warning. |
 | Ratings Proxy | The ratings service (api.agregarr.org) answers with a valid reply. | Warning. |
-| Cloudflare Solver Connection | Each configured solver answers. See [Integrations](Integrations.md#cloudflare-solver). | Warning if some are unreachable, error if all are. A solver that is busy with a challenge counts as reachable. Skipped when none is configured. |
+| Cloudflare Solver Connection | Each configured solver answers. See [Integrations](services/cloudflare-solvers.md). | Warning if some are unreachable, error if all are. A solver that is busy with a challenge counts as reachable. Skipped when none is configured. |
 | Cloudflare Solver | Networks collections have a working solver. | Error if you have a Networks collection and no solver. Also error for 24 hours after a solver reached FlixPatrol and was still refused. Skipped without Networks collections. See [below](#the-cloudflare-solver-check). |
 | Letterboxd Cloudflare | Letterboxd has not been blocked by Cloudflare in the last 8 hours. | Warning, with the setting to change. Skipped when **Use Cloudflare Solver for Letterboxd** is on. |
 | Maintainerr Connection | The Maintainerr API answers with a collection list. | Error if it fails, warning on an unexpected reply. Skipped when Maintainerr is not configured. |
@@ -70,7 +70,7 @@ The message suggests sending the solver through a VPN, since FlixPatrol may be c
 
 ## The Seerr check
 
-This check runs only when Seerr is connected and at least one collection creates placeholders for missing items. It's tied to **Keep placeholder ignore patterns in Seerr** in the Seerr settings. See [Integrations](Integrations.md#seerr).
+This check runs only when Seerr is connected and at least one collection creates placeholders for missing items. It's tied to **Keep placeholder ignore patterns in Seerr** in the Seerr settings. See [Integrations](services/seerr.md).
 
 - **Warning, Seerr does not have the setting**: shown only when the checkbox is on. The message names the Seerr build that added it.
 - **Warning, patterns missing**: Seerr rejected one or both patterns while the checkbox was on, or Seerr has the setting but the patterns aren't there while the checkbox is off. Tick the box or add them by hand.

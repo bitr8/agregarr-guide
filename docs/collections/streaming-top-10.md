@@ -13,7 +13,7 @@ This page sets up a Plex row that follows a streaming service's daily Top 10 or 
 
 ### 1. Add a solver
 
-Run a solver alongside Agregarr. The [Cloudflare Solver](../Integrations.md#cloudflare-solver) page has a Compose example.
+Run a solver alongside Agregarr. The [Cloudflare Solver](../services/cloudflare-solvers.md) page has a Compose example.
 
 1. Go to **Settings > Sources**.
 2. Under **Fetching Settings**, find **Cloudflare Solvers** and click **Add Solver**.
@@ -84,6 +84,6 @@ In Plex, the row appears under the name from **Collection Title Template**. It s
 ## Related
 
 - [Networks](sources/networks.md): every option, limit and refresh rule
-- [Cloudflare Solver](../Integrations.md#cloudflare-solver)
+- [Cloudflare Solver](../services/cloudflare-solvers.md)
 - [Rotate several lists through one row](cycle-sources.md): rotate several services through one row
 - [Name collections](name-collections.md)

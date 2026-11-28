@@ -134,7 +134,7 @@ Default: none. Movie libraries only. See [Random list pools](#random-list-pools)
 
 Only turn it on if Letterboxd is blocking requests from your server. Page fetches will then use the solvers under **Cloudflare Solvers**, in the order shown. If you haven't configured a solver, Agregarr falls back to its built-in browser. This setting also applies to **Validate** and the pool of lists that Random Lists finds for itself.
 
-After a block, the **Letterboxd Cloudflare** health check shows a warning for 8 hours and tells you to turn the setting on. To add a solver, see [Integrations](../../Integrations.md#cloudflare-solver) and [Health Checks](../../Health-Checks.md).
+After a block, the **Letterboxd Cloudflare** health check shows a warning for 8 hours and tells you to turn the setting on. To add a solver, see [Integrations](../../services/cloudflare-solvers.md) and [Health Checks](../../Health-Checks.md).
 
 **How it refreshes and limits:**
 
@@ -352,5 +352,5 @@ Trakt, IMDb and Letterboxd each have a **Random Lists** sub-type. TMDB has one a
 - [Cycle Lists](../cycle-sources.md): take turns between many lists in one row.
 - [AniList and MyAnimeList](anime.md): anime charts and lists.
 - [TMDB Lists](tmdb.md): TMDB charts, collections and filters.
-- [Integrations](../../Integrations.md): Cloudflare solver setup.
+- [Integrations](../../services/index.md): Cloudflare solver setup.
 - [Your first collection](../../get-started/first-collection.md)

@@ -6,7 +6,7 @@ Two sources follow streaming services. **Networks Top 10** builds a row from a s
 
 Builds a collection from one streaming service's Top 10 chart for a country, or worldwide, using titles already in your Plex library.
 
-**Needs:** a Cloudflare solver. The charts come from FlixPatrol, which sits behind Cloudflare. Add FlareSolverr, Byparr or Trawl under **Settings > Sources** (see [Cloudflare Solver](../../Integrations.md#cloudflare-solver)). You don't need an API key.
+**Needs:** a Cloudflare solver. The charts come from FlixPatrol, which sits behind Cloudflare. Add FlareSolverr, Byparr or Trawl under **Settings > Sources** (see [Cloudflare Solver](../../services/cloudflare-solvers.md)). You don't need an API key.
 
 **Works with:** movie and TV libraries. Your chosen library decides which half of the chart Agregarr uses. Titles of the other type are dropped.
 
@@ -103,7 +103,7 @@ The choices are **Netflix Originals**, **Amazon Originals**, **Disney+ Originals
 
 ## Related
 
-- [Cloudflare Solver](../../Integrations.md#cloudflare-solver) and the [Cloudflare Solver health check](../../Health-Checks.md#the-cloudflare-solver-check)
+- [Cloudflare Solver](../../services/cloudflare-solvers.md) and the [Cloudflare Solver health check](../../Health-Checks.md#the-cloudflare-solver-check)
 - [Your servers](your-servers.md), for sources that read from Plex, Radarr and Sonarr
 - [Cycle Lists](../cycle-sources.md), to rotate several of these through one row
 - [Collections](../form/basics.md#add-collection-form-the-basics), for the options every source shares

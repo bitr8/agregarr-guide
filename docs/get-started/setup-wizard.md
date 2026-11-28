@@ -49,7 +49,8 @@ Once you've finished this page, Agregarr will be signed in to your Plex account,
     - **Hostname or IP Address** (required): the address of your Plex server as Agregarr sees it. If Agregarr runs in Docker, `localhost` points back to the Agregarr container. Use the server's IP address or container name instead. The `http://` or `https://` prefix changes with **Use SSL**.
     - **Port** (required): `32400`, unless you changed it in Plex.
     - **Use SSL**: tick this if you reach Plex over `https`.
-    - **Web App URL** (advanced, optional): the address Agregarr opens when it links to Plex's web app. Leave this empty to use Plex's hosted web app.
+    - **Web App URL** (advanced, optional): Agregarr saves this address, but no link in the app uses it yet. Leave it empty.
+    <!-- OPEN: S1 Web App URL saved but unused -->
     - **Auto Empty Trash** (advanced, on by default): lets Agregarr empty a library's Plex trash after cleaning up placeholders. The default is fine for a first run. [Settings](../Settings.md#auto-empty-trash) explains what it removes.
     - **Collection Sort Format**: controls how Plex treats a leading "The", "A" or "An" when sorting collections. The default is **Off (sort exactly as typed)**. Leave it alone unless you want collections sorted without the article. See [Settings](../Settings.md#collection-sort-format).
 
@@ -71,11 +72,11 @@ Once you've finished this page, Agregarr will be signed in to your Plex account,
 
     A note at the top says IMDb, TMDB and Letterboxd sources don't need any setup. Below that, the sections appear in this order:
 
-    - **Fetching Settings**: **Use Cloudflare Solver for Letterboxd** and the **Cloudflare Solvers** list (**Add Solver**). Leave these alone unless Letterboxd or a Networks Top 10 source is blocked. See [Integrations](../Integrations.md#cloudflare-solver).
+    - **Fetching Settings**: **Use Cloudflare Solver for Letterboxd** and the **Cloudflare Solvers** list (**Add Solver**). Leave these alone unless Letterboxd or a Networks Top 10 source is blocked. See [Integrations](../services/cloudflare-solvers.md).
     - **Trakt Settings**: your **Trakt Client ID** for public lists, plus an optional OAuth setup for private lists.
     - **MDBList Settings**: your **MDBList API Key**.
     - **Tautulli Settings**: **Hostname or IP Address**, **Port**, **Use SSL**, **URL Base**, **API Key** and **External URL**.
-    - **Tracearr Settings**: an alternative to Tautulli. See [Integrations](../Integrations.md#tracearr).
+    - **Tracearr Settings**: an alternative to Tautulli. See [Integrations](../services/tautulli-tracearr.md#connect-tracearr).
     - **MyAnimeList Settings**: your **MyAnimeList API Key** for anime collections.
     - **Maintainerr Settings (Poster Overlays Only)**: **Hostname or IP Address**, **Port**, **Use SSL**, **URL Base**, **API Key** and **External URL**. See [Maintainerr Countdown](../Maintainerr-Countdown.md).
 
@@ -89,11 +90,11 @@ Once you've finished this page, Agregarr will be signed in to your Plex account,
 
     The note at the top says you only need Seerr (recommended) or Radarr and Sonarr to grab missing items. The sections appear in this order:
 
-    - **Seerr Settings**: **Add Seerr Connection**. See [Integrations](../Integrations.md#seerr).
+    - **Seerr Settings**: **Add Seerr Connection**. See [Integrations](../services/seerr.md).
     - **Radarr Settings**: **Add Radarr Server**.
     - **Sonarr Settings**: **Add Sonarr Server**.
     - **Placeholder Root Folders**: one **Placeholder Folder for** each Plex library, with a **Browse** button, plus **Add TMDB ID to movie placeholder folders** and **Add TVDB ID to TV placeholder folders**. Skip this unless you plan to use placeholders. If you do, read [Placeholders](../Placeholders.md#placeholder-folders) first. These paths have to exist inside the Agregarr container.
-    - **YouTube Cookie Configuration**: **Skip YouTube Trailer Downloads**, **Prefer TMDB Trailers**, **Exclude Words** and **Include Words**. Only placeholders use these settings. See [Integrations](../Integrations.md#tmdb-trailer-resolution).
+    - **YouTube Cookie Configuration**: **Skip YouTube Trailer Downloads**, **Prefer TMDB Trailers**, **Exclude Words** and **Include Words**. Only placeholders use these settings. See [Integrations](../services/trailers.md#what-agregarr-uses-trailers-for).
     - **Plex Webhook**: see [Placeholders](../Placeholders.md#watch-state).
     - **Plex Watchlist Sync**: needs Seerr connected first.
 

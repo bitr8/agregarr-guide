@@ -208,7 +208,7 @@ How to read an entry:
 
 - Variable: `{appTitle}`
 - Applies to: Seerr Requests
-- The title set in Seerr, or "Overseerr" when Agregarr can't read one.
+- The title set in Seerr. If Seerr has no title, "Overseerr". If Agregarr can't reach Seerr, the last title it read from Seerr, then your **Application Title**.
 - Example: `{appTitle} - All Requests` → `Home Requests - All Requests`
 
 ### Statistics

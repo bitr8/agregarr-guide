@@ -71,9 +71,9 @@ Letterboxd lists provide titles and years. Agregarr remembers the TMDB title mat
 
 A confident match is kept for 30 days. A looser match stays around for 7 or 14 days, and a weak match for 3 days. An unmatched title is remembered for 1 day, or 7 days when the title is more than 2 years old.
 
-By default, Letterboxd pages are fetched over plain HTTP, which is the fastest route. See [Integrations](Integrations.md#letterboxd).
+By default, Letterboxd pages are fetched over plain HTTP, which is the fastest route. See [Integrations](services/cloudflare-solvers.md#use-cloudflare-solver-for-letterboxd).
 
 ## Placeholders
 
-- **Skip YouTube Trailer Downloads** on **Settings > Downloads** makes placeholder creation much faster by using the built-in video instead of fetching trailers. See [Integrations](Integrations.md#tmdb-trailer-resolution).
+- **Skip YouTube Trailer Downloads** on **Settings > Downloads** makes placeholder creation much faster by using the built-in video instead of fetching trailers. See [Integrations](services/trailers.md#what-agregarr-uses-trailers-for).
 - If Plex can't match a placeholder, Agregarr won't recreate it for 7 days. That stops the same trailers being downloaded on every sync. See [Placeholders](Placeholders.md#the-safety-model).

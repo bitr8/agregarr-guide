@@ -53,7 +53,7 @@ Starting from scratch? The [README](https://github.com/bitr8/agregarr-dev#docker
 
 ### System
 - [**Health Checks**](Health-Checks.md): 18 diagnostic checks, with an option to mute the ones you don't need
-- [**Integrations**](Integrations.md): Cloudflare solver support for FlareSolverr, Byparr, or Trawl, used with FlixPatrol and other protected sources, plus the other services Agregarr connects to
+- [**Integrations**](services/index.md): Cloudflare solver support for FlareSolverr, Byparr, or Trawl, used with FlixPatrol and other protected sources, plus the other services Agregarr connects to
 - [**Settings**](Settings.md): general, Plex, sources, downloads, and jobs settings
 
 ### Under the hood

@@ -101,13 +101,13 @@ This only changes the sort title, never the collection name. Move to End groups 
 **Settings > Downloads** contains the placeholder folder and trailer settings. The relevant pages cover them in more detail:
 
 - **Placeholder Root Folders** and the folder naming options: [Placeholders](Placeholders.md#placeholder-folders).
-- Trailer sources, word lists and **YouTube Cookie Configuration**: [Integrations](Integrations.md#tmdb-trailer-resolution).
-- **Seerr Settings**: [Integrations](Integrations.md#seerr).
+- Trailer sources, word lists and **YouTube Cookie Configuration**: [Integrations](services/trailers.md#what-agregarr-uses-trailers-for).
+- **Seerr Settings**: [Integrations](services/seerr.md).
 - **Plex Webhook**: [Placeholders](Placeholders.md#watch-state).
 
 ## Sources
 
-**Settings > Sources** contains the Cloudflare solver list, the Letterboxd option, Tracearr and Maintainerr. See [Integrations](Integrations.md).
+**Settings > Sources** contains the Cloudflare solver list, the Letterboxd option, Tracearr and Maintainerr. See [Integrations](services/index.md).
 
 ---
 

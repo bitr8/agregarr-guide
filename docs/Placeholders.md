@@ -16,7 +16,7 @@ Trailer sources are covered in [Integrations](Integrations.md#tmdb-trailer-resol
 | Direct Plex deletion | Stale Plex entries deleted via the API instead of scan + empty trash. See [below](#direct-plex-deletion). |
 | Retroactive filters | Placeholder filters (genre, year, country, language, keyword) re-evaluated during cleanup. Existing placeholders that no longer pass are removed. See [below](#placeholder-filters). |
 | Hub verification | After sync, filtered hubs are checked for placeholders missing the placeholder label. Missing labels are re-applied and logged. |
-| Root folder filter | Limit candidates by Radarr/Sonarr root folder. See [Collections](Collections.md#coming-soon). |
+| Root folder filter | Limit candidates by Radarr/Sonarr root folder. See [Collections](collections/sources/coming-soon.md#coming-soon). |
 | Watch state reset | Playing a placeholder trailer resets it to unwatched, for shared users too. See [below](#watch-state). |
 | Seerr ignore patterns | Keeps Seerr from counting placeholders as available. See [below](#seerr). |
 
@@ -57,11 +57,11 @@ Two settings decide which release dates qualify. Both sit under **Placeholder Cr
     - **Include all released items**: any item already released qualifies, however long ago. This is the default.
     - **Only include items released within** _N_ **days**: only items released in the last _N_ days qualify. New collections start at 14. Set 0 to make placeholders only for items that haven't released yet, or release today.
 
-For movies, the release date is the earlier of the digital and physical dates. When TMDB only has a cinema date, Agregarr estimates the release as the cinema date plus 90 days. Coming Soon and Multiple Sources collections also offer **Skip items with an estimated release date**, which leaves those estimated movies out. See [Collections](Collections.md#skip-estimated-release-dates). For TV, the date is the air date of the next season, or the show's first air date for a new show. For a new show that Sonarr has, Agregarr uses Sonarr's air time for episode 1, so the date is the day it airs in your time zone rather than TMDB's date, which is the day the network aired it.
+For movies, the release date is the earlier of the digital and physical dates. When TMDB only has a cinema date, Agregarr estimates the release as the cinema date plus 90 days. Coming Soon and Multiple Sources collections also offer **Skip items with an estimated release date**, which leaves those estimated movies out. See [Collections](collections/sources/coming-soon.md#skip-items-with-an-estimated-release-date). For TV, the date is the air date of the next season, or the show's first air date for a new show. For a new show that Sonarr has, Agregarr uses Sonarr's air time for episode 1, so the date is the day it airs in your time zone rather than TMDB's date, which is the day the network aired it.
 
 These windows only decide which items get a new placeholder. An existing placeholder isn't removed because its release date moved outside the window. It's removed when the real item arrives, when it drops off the source list, or when it fails the filters. See [Cleanup](#cleanup).
 
-**Include mid-season episodes (TV)** on Coming Soon collections lists shows whose next episode falls inside **Days Ahead**. Those shows must already be in Plex, so no placeholder is made for them. See [Collections](Collections.md#mid-season-episodes).
+**Include mid-season episodes (TV)** on Coming Soon collections lists shows whose next episode falls inside **Days Ahead**. Those shows must already be in Plex, so no placeholder is made for them. See [Collections](collections/sources/coming-soon.md#include-mid-season-episodes-tv).
 
 ---
 
@@ -146,9 +146,9 @@ Every placeholder gets the Plex label `trailer-placeholder`. For TV, the label g
 
 Agregarr uses the label to keep placeholders out of places they don't belong:
 
-- **Filtered Plex Hubs** leave out anything with the label. Plex's own **Recently Added** hubs don't, so turn those off and use a filtered hub instead. The collections page warns when a library has placeholder collections and a default hub still switched on. See [Collections](Collections.md#filtered-hubs).
+- **Filtered Plex Hubs** leave out anything with the label. Plex's own **Recently Added** hubs don't, so turn those off and use a filtered hub instead. The collections page warns when a library has placeholder collections and a default hub still switched on. See [Collections](collections/sources/your-servers.md#filtered-plex-hub).
 - The automatic actor and director collections, and label-based collections, never include placeholders.
-- For any other collection, add `trailer-placeholder` under **Label Exclusion**. See [Collections](Collections.md).
+- For any other collection, add `trailer-placeholder` under **Label Exclusion**. See [Collections](collections/index.md).
 
 After each sync, Agregarr checks every filtered hub. A placeholder found in one is missing its label, so Agregarr adds the label again and logs it.
 
@@ -163,7 +163,7 @@ Placeholders are ordinary Plex items, so overlay templates apply to them. Templa
 
 Agregarr recognises a placeholder by its edition: a movie or show whose edition title contains "Trailer", "Placeholder" or "Coming Soon". A TV placeholder's episode is recognised by its title, **Trailer (Placeholder)**. If Sonarr or Radarr reports the item as downloaded, it's never treated as a placeholder.
 
-Coming Soon collections always apply overlays straight after the collection sync. Other collections do this when **Apply item overlays during sync** is ticked. See [Collections](Collections.md#apply-item-overlays-during-sync). If placeholders and overlays are both on but the library has no overlay templates, the form warns that placeholders will be created without status overlays.
+Coming Soon collections always apply overlays straight after the collection sync. Other collections do this when **Apply item overlays during sync** is ticked. See [Collections](collections/form/artwork.md#apply-item-overlays-during-sync). If placeholders and overlays are both on but the library has no overlay templates, the form warns that placeholders will be created without status overlays.
 
 ### The Specials season
 

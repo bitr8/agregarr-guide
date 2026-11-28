@@ -30,7 +30,7 @@ Wait for **Discovering...** to finish. A message starting with "Imported" shows 
 
 **Check:** **Add Collection** is now solid. The sidebar items, including **Home**, **Recommended** and **Library** should no longer be greyed out.
 
-Discover lists the hubs and collections already in your Plex libraries so Agregarr knows about them. You only need to run it once. If it finds nothing at all, the page stays locked. Start by checking the connection under **Settings > Plex**.
+Discover imports the hubs and collections already in your Plex libraries so Agregarr can manage them. It also tidies Plex's Home and Recommended lists for collections Agregarr manages, so it does write to Plex. You only need to run it once. If it finds nothing at all, the page stays locked. Start by checking the connection under **Settings > Plex**.
 
 ### 2. Add the collection
 
@@ -84,7 +84,7 @@ Agregarr also syncs automatically. The **Plex Collections Sync** job runs every 
 
 Open Plex and go to **Home**. You should see a row named **Trending Today** containing the movies trending on TMDB today. The same collection also appears under the library's **Collections** tab.
 
-If the row isn't there, refresh Plex or reopen the app. Some Plex apps hold on to the old Home layout. For more, see [Collections](../Collections.md).
+If the row isn't there, refresh Plex or reopen the app. Some Plex apps hold on to the old Home layout. For more, see [Collections](../collections/index.md).
 
 ## What you built
 

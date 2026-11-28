@@ -12,7 +12,7 @@ Every collection stays in your library the whole time. A rotation only changes w
 
 Both keep Home changing, but they start from different places:
 
-- **Cycle Lists**: you have lots of lists (Trakt, Letterboxd, IMDb) and want them to take turns in one row. Only the list that's showing exists as a collection. See [Cycle Lists](Cycle-Lists.md).
+- **Cycle Lists**: you have lots of lists (Trakt, Letterboxd, IMDb) and want them to take turns in one row. Only the list that's showing exists as a collection. See [Cycle Lists](collections/cycle-sources.md).
 - **Rotation**: you already have collections in Plex, whether Agregarr made them, you made them by hand, or another tool did, and you want a few of them on Home at a time.
 
 ## Examples

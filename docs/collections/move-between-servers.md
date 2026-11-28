@@ -110,7 +110,7 @@ The file records the settings that define the collection. That includes:
 - **Auto-generate Collection posters** and **Apply item overlays during sync**.
 - Whether custom wallpaper, summary and theme are enabled, plus the summary text.
 
-Source IDs are renumbered from 1 in the file. The file also stores format version 1.0 and the export time. A collection in a [rotation](../Rotation.md) exports with its own saved visibility and shuffle setting, not the settings the rotation applies at that moment.
+Source IDs are renumbered from 1 in the file. The file also stores format version 1.0 and the export time. A collection in a [rotation](../appear/rotation.md) exports with its own saved visibility and shuffle setting, not the settings the rotation applies at that moment.
 
 ## What does not travel
 

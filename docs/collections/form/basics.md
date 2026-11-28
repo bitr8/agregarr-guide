@@ -150,7 +150,7 @@ Default for a new collection: all three ticked. Presets tick **Server Owner Home
 
 <!-- OPEN: M19 -->
 
-For a collection in a rotation, a notice above the boxes reads "{group} decides when this is on Home. What you choose here is saved as this collection's own setting and applies again if it leaves the rotation." See [Rotation](../../Rotation.md).
+For a collection in a rotation, a notice above the boxes reads "{group} decides when this is on Home. What you choose here is saved as this collection's own setting and applies again if it leaves the rotation." See [Rotation](../../appear/rotation.md).
 
 #### Users Home {#users-home}
 
@@ -342,4 +342,4 @@ Default: hidden. Choosing multiple libraries creates one linked collection per l
 - [Your first collection](../../get-started/first-collection.md)
 - [Name collections](../name-collections.md)
 - [Source pages](../index.md#reference)
-- [Rotation](../../Rotation.md)
+- [Rotation](../../appear/rotation.md)

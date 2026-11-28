@@ -78,4 +78,4 @@ Open Plex. The collection or hub appears on the Home and Recommended screens you
 - [Collection form](form/basics.md#pre-existing-collections-and-default-hubs)
 - [Visibility and time restrictions](form/visibility.md#hubs-and-imported-collections)
 - [Settings](../Settings.md#exclude-from-ordering-plex-label)
-- [Rotation](../Rotation.md)
+- [Rotation](../appear/rotation.md)

@@ -55,7 +55,7 @@ Only the active list exists as a collection. Agregarr doesn't fetch the others u
     Choose **Interleaved**, **List Order** or **Randomised** under **Combine Mode** instead. These combine every source into one collection and remove duplicates.
 
 ??? note "Cycle collections you already have"
-    That's a different feature. Rotation groups swap existing collections on and off Home. See [Rotation](../Rotation.md).
+    That's a different feature. Rotation groups swap existing collections on and off Home. See [Rotation](../appear/rotation.md).
 
 ## What it doesn't do
 
@@ -76,5 +76,5 @@ Only the active list exists as a collection. Agregarr doesn't fetch the others u
 ## Related
 
 - [Multiple Sources](sources/multiple-sources.md)
-- [Rotation](../Rotation.md)
+- [Rotation](../appear/rotation.md)
 - [Run a collection only at certain times](timed.md)

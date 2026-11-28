@@ -40,7 +40,7 @@ The complete list of your Agregarr collections, default Plex hubs and collection
 
 ### Rotation
 
-Rotations swap a few Home rows across a larger set of collections. See [Rotation](../Rotation.md).
+Rotations swap a few Home rows across a larger set of collections. See [Rotation](../appear/rotation.md).
 
 ### Posters
 

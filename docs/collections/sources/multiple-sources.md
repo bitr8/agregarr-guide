@@ -167,7 +167,7 @@ Agregarr only fetches the list currently showing. The other lists wait for their
 Rotation handles a similar job for collections that already exist. The right choice depends on what you're starting with:
 
 - **Cycle Lists**: you have lots of lists (Trakt, Letterboxd, IMDb) and want them to take turns in one row. Only the list currently showing exists as a collection.
-- **Rotation**: you already have collections in Plex, created by Agregarr, by hand or by another tool, and want a few of them on Home at a time. Every collection stays in your library. Rotation changes whether each collection appears on Home and Library Recommended, and where it appears. See [Rotation](../../Rotation.md).
+- **Rotation**: you already have collections in Plex, created by Agregarr, by hand or by another tool, and want a few of them on Home at a time. Every collection stays in your library. Rotation changes whether each collection appears on Home and Library Recommended, and where it appears. See [Rotation](../../appear/rotation.md).
 
 ### Dynamic Title from Active Source
 
@@ -272,6 +272,6 @@ In a standalone collection, **Dynamic Title from Random List** names the collect
 
 - [Activity sources](activity.md)
 - [Coming Soon](coming-soon.md)
-- [Rotation](../../Rotation.md)
+- [Rotation](../../appear/rotation.md)
 - [TMDB Custom Advanced Filters](tmdb-filters.md)
 - [Collections](../index.md)

@@ -60,7 +60,7 @@ See [Collection pages](pages.md#bulk-edit-collections) for the full list and the
     Only **Users Home**, **Server Owner Home**, **Library Recommended** and **Randomize Home Order** apply to them. Agregarr skips the other columns for these rows.
 
 ??? note "Collections in a rotation"
-    Visibility and **Randomize Home Order** changes are saved as the collection's own settings. The rotation applies them the next time the collection is on show. See [Rotation](../Rotation.md).
+    Visibility and **Randomize Home Order** changes are saved as the collection's own settings. While the collection is in a rotation, the rotation's own Home settings apply instead; its own values come back when it leaves the rotation. See [Rotation](../appear/rotation.md).
 
 ??? note "Sort the table"
     Click a column heading to sort by it. Click it again to reverse the order.
@@ -79,11 +79,11 @@ See [Collection pages](pages.md#bulk-edit-collections) for the full list and the
 - **A message says "Failed to update NAME:" with an error.** That collection didn't save. The others did. Open it with **Edit** and save it there to see the cause.
 - **A hub or Pre-Existing collection isn't in the list.** The type list is set to **Agregarr Collections**. Change it.
 - **A column does nothing for a row.** The column is faded for that row because the setting doesn't apply to that kind of item.
-- **A warning says "Couldn't save this collection's own visibility setting."** The collection is in a rotation, so the rotation keeps its previous setting. Change it in the rotation.
+- **A warning says "Couldn't save this collection's own visibility setting."** The collection is in a rotation and its own setting didn't save, so the old value comes back when it leaves the rotation. Try the change again.
 
 ## Related
 
 - [Collection pages](pages.md#bulk-edit-collections)
 - [Collection form](form/basics.md)
 - [Visibility and time restrictions](form/visibility.md)
-- [Rotation](../Rotation.md)
+- [Rotation](../appear/rotation.md)

@@ -59,7 +59,7 @@ Agregarr checks the window on every sync. Click **Sync Collections** to check th
 - There is no time of day setting. Windows cover whole days.
 - Date ranges don't include a year, so they repeat every year.
 - Agregarr doesn't use your time zone. It uses the server's clock.
-- A collection in a Rotation leaves its slot on the first sync after its window closes, then another collection takes the slot. When the window opens again, the collection goes back into the queue and returns when its turn comes. See [Rotation](../Rotation.md).
+- A collection in a Rotation leaves its slot on the first sync after its window closes, then another collection takes the slot. When the window opens again, the collection goes back into the queue and returns when its turn comes. See [Rotation](../appear/rotation.md).
 
 ## If it didn't work
 

@@ -75,7 +75,7 @@ This warning appears on the **Collections** pages rather than in the form, but i
 
 The warning names the library, then lists each hub. Beside each hub, it offers "Create a **Recently Added Movies** filtered hub to exclude placeholders" when no filtered hub of the right type exists. If one does exist, it offers "Disable visibility on this default hub (you have a **[your filtered hub's name]** filtered hub)". The bold text is either the suggested hub type or the name of your existing filtered hub.
 
-Agregarr checks four default hubs: Recently Added and Recently Released for movies, plus Recently Added and Recently Aired for TV.
+Agregarr checks four default hubs: Recently Added Movies, Recently Released Movies, Recently Added TV and Recently Released Episodes.
 
 The warning stays hidden until **Discover Existing Collections & Hubs** has run. To act on it, see [Filtered Plex Hub](../sources/your-servers.md#filtered-plex-hub).
 

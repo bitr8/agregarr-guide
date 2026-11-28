@@ -42,7 +42,7 @@ Use the source that holds the list. IMDb, Letterboxd, Trakt, MDBList and TVDB ea
 
 **TMDB Lists**, **IMDb Lists**, **Letterboxd Lists** and **Trakt Lists** each have a **Random Lists** sub-type. It picks a different list from a pool at every sync.
 
-To swap collections you already have on Home, use [Rotation](../Rotation.md). See [Rotate several lists through one row](cycle-sources.md).
+To swap collections you already have on Home, use [Rotation](../appear/rotation.md). See [Rotate several lists through one row](cycle-sources.md).
 
 ## What does each source need?
 

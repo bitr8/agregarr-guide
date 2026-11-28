@@ -161,4 +161,4 @@ Tracearr has its own **Tracearr Settings** box under **Settings > Sources**. It 
 
 - [Multiple Sources](multiple-sources.md)
 - [Collections](../index.md)
-- [Rotation](../../Rotation.md)
+- [Rotation](../../appear/rotation.md)

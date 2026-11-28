@@ -33,15 +33,15 @@ Starting from scratch? The [README](https://github.com/bitr8/agregarr-dev#docker
 ![Dashboard with the Overlay Sync and Collection Sync cards](images/dashboard.png)
 
 ### Collections
-- [**Collection Presets**](Collections.md#collection-presets): 12 preset configs, including Trending Movies Today, IMDb Top 250, and Netflix Top 10 Movies
-- [**Library Essentials**](Collections.md#library-essentials): automatically builds smart collections by genre, decade, resolution, or content rating
-- [**Separator Collections**](Collections.md#separator-collections): visual dividers that organise long collection rows
-- [**Label Collections**](Collections.md#label-collections): collections built from Plex labels
-- [**Per-User Targeting**](Collections.md#per-user-collection-targeting): limits a collection to one Plex user
-- [**Sort Title**](Collections.md#sort-title): controls where a collection sorts
-- [**Filtered Hubs**](Collections.md#filtered-hubs): recently added and released hubs that leave out placeholders, including individual episodes
-- [**More Sources and Options**](Collections.md#more-sources-and-options): TVDB lists, IMDb Bottom 100, random lists, label exclusion, and more
-- [**Export/Import**](Collection-Export-Import.md): moves collection configs between instances
+- [**Collection Presets**](collections/form/basics.md#start-from-preset): 12 preset configs, including Trending Movies Today, IMDb Top 250, and Netflix Top 10 Movies
+- [**Library Essentials**](collections/sources/your-servers.md#library-essentials): automatically builds smart collections by genre, decade, resolution, or content rating
+- [**Separator Collections**](collections/sources/your-servers.md#separator-collections): visual dividers that organise long collection rows
+- [**Label Collections**](collections/sources/your-servers.md#label-collections): collections built from Plex labels
+- [**Per-User Targeting**](collections/form/basics.md#target-user): limits a collection to one Plex user
+- [**Sort Title**](collections/name-collections.md#sort-title): controls where a collection sorts
+- [**Filtered Hubs**](collections/sources/your-servers.md#filtered-plex-hub): recently added and released hubs that leave out placeholders, including individual episodes
+- [**More Sources and Options**](collections/choose-a-source.md#choose-a-source): TVDB lists, IMDb Bottom 100, random lists, label exclusion, and more
+- [**Export/Import**](collections/move-between-servers.md): moves collection configs between instances
 
 ### Overlays
 - [**Overlays**](Overlays.md): overlay templates, canvas size, and the sync dashboard
@@ -59,7 +59,7 @@ Starting from scratch? The [README](https://github.com/bitr8/agregarr-dev#docker
 ### Under the hood
 - [**Placeholders**](Placeholders.md): how Agregarr creates and cleans up placeholder items
 - [**Performance**](Performance.md): how syncs avoid doing the same work again
-- [**Cycle Lists**](Cycle-Lists.md): one row that moves to the next list each time it syncs
+- [**Cycle Lists**](collections/cycle-sources.md): one row that moves to the next list each time it syncs
 
 ## Help improve these docs
 

@@ -54,4 +54,4 @@ Collections made by other tools appear as **Pre-Existing** after discovery. Agre
 
 ## Related
 
-[Finding your way around](finding-your-way.md) · [Performance](../Performance.md) · [Settings](../Settings.md#jobs) · [Collections](../Collections.md#collection-ownership)
+[Finding your way around](finding-your-way.md) · [Performance](../Performance.md) · [Settings](../Settings.md#jobs) · [Collections](../collections/adopt-existing.md#variations)

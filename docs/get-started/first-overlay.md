@@ -20,10 +20,10 @@ The first time you open **Library Configuration**, the **Overlay Output Settings
 
 ### 2. Choose the base poster
 
-In **Overlay Output Settings**, choose **Plex Posters**, then click **Continue**.
+In **Overlay Output Settings**, choose **Plex Posters**, then click **Continue**. Agregarr asks you to confirm your Plex posters are clean: type `I HAVE CLEAN POSTERS` exactly and click **Confirm**.
 
 **Plex Posters** keeps the artwork currently showing in Plex. The first time Agregarr overlays a title, it saves a copy of that poster and draws on the copy. That stops the badge stacking on top of an older badge. **Reset Library**, covered at the end of this page, puts the saved copy back.
-<!-- OPEN: M20/M24 base-poster default stays TMDB until the overlay-marker guard lands (feature/base-poster-guard) -->
+<!-- OPEN: M20 the default stays TMDB Posters; picking Plex always asks for the clean-posters confirmation (Q9, feature/base-poster-guard) -->
 
 Leave **Output JPEG Quality** and **Posterizarr Integration** as they are.
 

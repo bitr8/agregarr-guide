@@ -17,6 +17,7 @@ nav = [
     { "Install on Unraid" = "get-started/install-unraid.md" },
     { "First run: the setup wizard" = "get-started/setup-wizard.md" },
     { "Your first collection" = "get-started/first-collection.md" },
+    { "Your first overlay" = "get-started/first-overlay.md" },
     { "How Agregarr works" = "get-started/how-it-works.md" },
     { "Finding your way around" = "get-started/finding-your-way.md" },
     { "Updating and image tags" = "get-started/updating.md" },

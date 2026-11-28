@@ -92,4 +92,4 @@ You ran Discover to unlock Agregarr, then created a collection that pulls TMDB's
 
 ## Next
 
-[Overlays](../Overlays.md): add badges to your posters.
+[Your first overlay](first-overlay.md): add a 4K badge to your posters.

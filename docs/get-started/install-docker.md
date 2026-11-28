@@ -69,11 +69,10 @@ This gets Agregarr running in a container so you can sign in with Plex.
 
     ![Agregarr Setup page, step 1 Sign in with Plex, with the Sign In button, on a phone](../images/install-docker-first-run-phone.png)
 
-## What you built
-
-Agregarr runs as one container on port `7171`, with its settings kept in a folder on your machine. Deleting and recreating the container won't remove those settings.
+## If the volume warning shows
 
 If the Setup page shows an orange warning that the `/app/config` volume mount wasn't configured properly and all data will be cleared when the container stops or restarts, the config folder isn't mounted. Check the first line under `volumes:`, then run `docker compose up -d` again.
+
 
 ## Later, when you need it
 

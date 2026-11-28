@@ -107,10 +107,6 @@ Do these in order.
 
 Run the reset first. **Reset Library** only appears while at least one overlay is ticked. Unticking your only overlay won't remove badges already drawn on posters, because a sync has nothing to run when no overlays are ticked. If you leave the overlay ticked, the next sync adds the badges again.
 
-## What you built
-
-You enabled one preset for one library, checked it against a single title, ran the sync, and saw the result in Plex. Other overlays use the same process.
-
 ## Next
 
 [Overlays](../Overlays.md): the other presets, the template editor and the rest of the overlay options.

@@ -137,10 +137,6 @@ The first Plex account to sign in on a fresh install becomes the admin. Once set
 
 <!-- OPEN: link users and sign-in page -->
 
-## What you built
-
-Agregarr now knows about your Plex server, has your admin account, and is marked as set up. It hasn't created anything in Plex yet. Next, let Agregarr inspect the collections and hubs Plex already has, then make your first collection.
-
 ## Next
 
-[Your first collection](first-collection.md): click **Discover Existing Collections & Hubs**, then add a collection.
+Agregarr hasn't created anything in Plex yet. [Your first collection](first-collection.md): click **Discover Existing Collections & Hubs**, then add a collection.

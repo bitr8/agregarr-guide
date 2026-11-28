@@ -90,11 +90,10 @@ Already using the Compose Manager plugin (or Compose Manager Plus)? You can run 
 
 For placeholder folders on this route, add lines under `volumes:` using your own share paths, for example `/mnt/user/media/placeholders/movies:/data/movies`, then run **Compose Up** again.
 
-## What you built
-
-Agregarr runs as one container on port `7171`, with its settings stored in your appdata share. Recreating or updating the container leaves those settings alone.
+## If the volume warning shows
 
 If the Setup page shows a banner saying the `/app/config` volume mount wasn't configured properly, the config path is missing or wrong. For the template route, check **Config directory**. For the Compose route, check the appdata line under `volumes:`. Apply the template or run **Compose Up** again.
+
 
 ## Next
 

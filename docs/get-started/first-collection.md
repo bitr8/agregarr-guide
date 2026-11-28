@@ -86,10 +86,6 @@ Open Plex and go to **Home**. You should see a row named **Trending Today** cont
 
 If the row isn't there, refresh Plex or reopen the app. Some Plex apps hold on to the old Home layout. For more, see [Collections](../collections/index.md).
 
-## What you built
-
-You ran Discover to unlock Agregarr, then created a collection that pulls TMDB's trending movies into a row on your Plex Home. Agregarr refreshes it on every sync.
-
 ## Next
 
 [Your first overlay](first-overlay.md): add a 4K badge to your posters.
